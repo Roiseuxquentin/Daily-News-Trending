@@ -3,13 +3,15 @@
 # EXPRESS SERVER
 
 ## Dependance
-
-> sudo apt install nodejs 
-> sudo apt install curl
-> sudo apt install npm
-
 ```
-> sudo apt install jq
+sudo apt install nodejs 
+
+sudo apt install curl
+
+sudo apt install npm
+```
+```
+sudo apt install jq
 (validation json)
 ```
 
