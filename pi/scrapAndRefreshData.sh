@@ -156,6 +156,10 @@ echo ' TWITTER _ OK'
 
 #CLEAN
 rm ghost.*
+
+#jq is json validator
+cat ./data/dailyData.json | jq emty
+
 echo "_______D0n3"
 
 
