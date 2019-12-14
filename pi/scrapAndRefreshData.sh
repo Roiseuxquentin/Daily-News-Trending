@@ -9,8 +9,9 @@ cat ghost.info.html | sed '/^$/d' | sed 's/^/" /g' | sed 's/$/",/g' | sed '1i { 
 
 echo ' img TOP 100 _ OK'
 # Daily search trends
-GOO=$(curl -s https://trends.google.com/trends/trendingsearches/daily/rss\?geo\=FR | grep '<title>' | sed 's/^.*<title>/"/g' | sed 's/<\/title>/",/g' | sed '1s/^.*$/[/g' | sed '$ s/.$/],/g' )
-echo '"gooSearch" : '$GOO >> ./data/dailyData.json
+GOOFR=$(curl -s https://trends.google.com/trends/trendingsearches/daily/rss\?geo\=FR | grep '<title>' | sed 's/^.*<title>/"/g' | sed 's/<\/title>/",/g' | sed '1s/^.*$/[[  "flagFR",/g' | sed '$ s/.$/],/g' )
+GOOBE=$(curl -s https://trends.google.com/trends/trendingsearches/daily/rss\?geo\=BE | grep '<title>' | sed 's/^.*<title>/"/g' | sed 's/<\/title>/",/g' | sed '1s/^.*$/[ "flagBE",/g' | sed '$ s/.$/]],/g' )
+echo '"gooSearch" : '$GOOFR $GOOBE >> ./data/dailyData.json
 echo ' google TOP _ OK'
 
 # CITATION daily
