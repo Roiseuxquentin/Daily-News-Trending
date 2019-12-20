@@ -7,8 +7,6 @@ const fs = require('fs')
 
 // const bodyParser = require('body-parser')
 const Parser = require('rss-parser')
-const feed = require('feed-read')
-
 
 // Middleware
 // app.use(bodyParser.urlencoded({ extended: true })) 
@@ -82,5 +80,4 @@ app.get('/failles', (req,res) => {
     res.send(JSON.stringify({payload : payLoad ,dorks : dorks}))
   })
 })
-
-app.listen(42333, () => console.log('listen port 42333'))
+app.listen(42333, () =>  curl.get('http://roiseux.fr', (err, response, body) => console.log(`ip public :${body} \nip local:????\nport :42333`) ) )
