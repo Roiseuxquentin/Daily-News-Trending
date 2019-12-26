@@ -10,9 +10,9 @@ cat ghost.info.html | sed '/^$/d' | sed 's/^/" /g' | sed 's/$/",/g' | sed '1i { 
 echo ' img TOP 100 _ OK'
 # Daily search trends
 GOOFR=$(curl -s https://trends.google.com/trends/trendingsearches/daily/rss\?geo\=FR | grep '<title>' | sed 's/^.*<title>/"/g' | sed 's/<\/title>/",/g' | sed '1s/^.*$/[[  "🇫🇷",/g' | sed '$ s/.$/],/g' )
-GOOIE=$(curl -s https://trends.google.com/trends/trendingsearches/daily/rss\?geo\=IE | grep '<title>' | sed 's/^.*<title>/"/g' | sed 's/<\/title>/",/g' | sed '1s/^.*$/[ "🇮🇪",/g' | sed '$ s/.$/],/g' )
-GOOGB=$(curl -s https://trends.google.com/trends/trendingsearches/daily/rss\?geo\=GB | grep '<title>' | sed 's/^.*<title>/"/g' | sed 's/<\/title>/",/g' | sed '1s/^.*$/[ "🇬🇧",/g' | sed '$ s/.$/],/g' )
-GOOBE=$(curl -s https://trends.google.com/trends/trendingsearches/daily/rss\?geo\=BE | grep '<title>' | sed 's/^.*<title>/"/g' | sed 's/<\/title>/",/g' | sed '1s/^.*$/[ "🇧🇪",/g' | sed '$ s/.$/],/g' )
+GOOIE=$(curl -s https://trends.google.com/trends/trendingsearches/daily/rss\?geo\=IE | grep '<title>' | head -n 5 | sed 's/^.*<title>/"/g' | sed 's/<\/title>/",/g' | sed '1s/^.*$/[ "🇮🇪",/g' | sed '$ s/.$/],/g' )
+GOOGB=$(curl -s https://trends.google.com/trends/trendingsearches/daily/rss\?geo\=GB | grep '<title>' | head -n 5 | sed 's/^.*<title>/"/g' | sed 's/<\/title>/",/g' | sed '1s/^.*$/[ "🇬🇧",/g' | sed '$ s/.$/],/g' )
+GOOBE=$(curl -s https://trends.google.com/trends/trendingsearches/daily/rss\?geo\=BE | grep '<title>' | head -n 5 | sed 's/^.*<title>/"/g' | sed 's/<\/title>/",/g' | sed '1s/^.*$/[ "🇧🇪",/g' | sed '$ s/.$/],/g' )
 GOOUS=$(curl -s https://trends.google.com/trends/trendingsearches/daily/rss\?geo\=US | grep '<title>' | sed 's/^.*<title>/"/g' | sed 's/<\/title>/",/g' | sed '1s/^.*$/[ "🇺🇸",/g' | sed '$ s/.$/]],/g' )
 echo '"gooSearch" : '$GOOFR $GOOIE $GOOGB $GOOBE $GOOUS >> ./data/dailyData.json
 echo ' google TOP _ OK'
@@ -138,7 +138,7 @@ curl -s "https://trends24.in/france/paris/" > ghost.twitter.html
 #SPLIT DATA
 cat ghost.twitter.html | sed 's/https/\n/g' | grep -o 'twitter.com/search?q=.*/a>' | sed 's/\(<\/a>\|">\|\/\)/\n/g' | sed 's/=\|twitter/\nsearch/g' | grep -v 'search' | sed -r '/^\s*$/d' > ghost.twitter.buffer
 #FORMAT DATA
-head -n 50 ghost.twitter.buffer | awk '!a[$0]++' | sed 's/$/",/' | sed 's/^/"/' | sed '1i "twitter" : { "paris" : [ ' | sed '$ s/.$/] , /' >> ./data/dailyData.json
+head -n 50 ghost.twitter.buffer | awk '!a[$0]++' | sed 's/$/",/' | sed 's/^/"/' | sed '1i "twitter" : [ " ",  " 🇫🇷 " ," ", ' | sed '$ s/.$/ , /' >> ./data/dailyData.json
 ##REMOVE DUPPLICATE => uniq don't work .... sort -u break order...
 #awk '!a[$0]++'
 
@@ -147,14 +147,14 @@ curl -s "https://trends24.in/" > ghost.twitter.html
 #SPLIT DATA
 cat ghost.twitter.html | sed 's/https/\n/g' | grep -o 'twitter.com/search?q=.*/a>' | sed 's/\(<\/a>\|">\|\/\)/\n/g' | sed 's/=\|twitter/\nsearch/g' | grep -v 'search' | sed -r '/^\s*$/d' > ghost.twitter.buffer
 #FORMAT DATA
-head -n 50 ghost.twitter.buffer | awk '!a[$0]++' | sed 's/$/",/' | sed 's/^/"/' | sed '1i "world" : [ ' |  sed '$ s/.$/] , /' >> ./data/dailyData.json
+head -n 50 ghost.twitter.buffer | awk '!a[$0]++' | sed 's/$/",/' | sed 's/^/"/' | sed '1i " ", " 🌎 "," ", ' |  sed '$ s/.$/ , /' >> ./data/dailyData.json
 
 #CATCH DATA TWITTER AMERIQUE
 curl -s "https://trends24.in/united-states/" > ghost.twitter.html
 #SPLIT DATA
 cat ghost.twitter.html | sed 's/https/\n/g' | grep -o 'twitter.com/search?q=.*/a>' | sed 's/\(<\/a>\|">\|\/\)/\n/g' | sed 's/=\|twitter/\nsearch/g' | grep -v 'search' | sed -r '/^\s*$/d' > ghost.twitter.buffer
 #FORMAT DATA
-head -n 50 ghost.twitter.buffer | awk '!a[$0]++' | sed 's/$/",/' | sed 's/^/"/' | sed '1i "amerique" : [ ' | sed '$ s/.$/]} }/' >> ./data/dailyData.json
+head -n 50 ghost.twitter.buffer | awk '!a[$0]++' | sed 's/$/",/' | sed 's/^/"/' | sed '1i " ", " 🇺🇸 "," ", ' | sed '$ s/.$/] }/' >> ./data/dailyData.json
 echo ' TWITTER _ OK'
 
 
