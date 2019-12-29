@@ -10,6 +10,7 @@ import HeaderZ from './components/HeaderZ.js'
 import GiveMeMoneyStack from './components/GiveMeMoneyStack.js'
 import GiveMeNewsPapers from './components/GiveMeNewsPapers.js'
 import GiveMeGoogle from './components/GiveMeGoogle.js'
+import GiveMeSante from './components/GiveMeSante.js'
 
 // ################################################### 
 // #*/=============================================\*# 
@@ -86,6 +87,7 @@ export default class App extends Component {
               <GiveMeMoneyStack data={this.state.data} />
               <GiveMeNewsPapers />            
               <GiveMeGoogle data={this.state.data} />
+              <GiveMeSante data={this.state.data} />            
             </ScrollView>
             )
           break;
@@ -94,7 +96,6 @@ export default class App extends Component {
       } 
             {/*
             <ScrollView style={{ height : '100%' }} >
-              <GiveMeSante data={this.state.data} />            
               <GiveMeSPicture data={this.state.data} />           
               <GiveMeActu data={this.state.data} />           
               <GiveMeTwitter data={this.state.data} />
