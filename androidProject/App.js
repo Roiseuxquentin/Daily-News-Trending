@@ -21,7 +21,6 @@ export default class App extends Component {
                 "name":"XSS",
                 "vector":"ghost"}]
     }
-
   }
 
   componentDidMount() {
@@ -57,7 +56,7 @@ export default class App extends Component {
 
   display(page) {
     if (this.state.loaded) {
-        return ( <Home />  )
+        return ( <Home grec={this.state.grec} />  )
             {/*
             <ScrollView style={{ height : '100%' }} >
               <HeaderZ />
@@ -71,7 +70,7 @@ export default class App extends Component {
             </ScrollView>
             */}
     }else {
-      return ( <View>
+      return ( <View style={container} >
                 <Loader />
                </View>)
     }
@@ -95,15 +94,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  }
 })
