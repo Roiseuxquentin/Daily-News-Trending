@@ -98,7 +98,7 @@ class Home extends Component {
 				</Text>
 
 				<View style={{flex : 1, flexDirection : 'row', marginTop : 20 }} >
-					<TouchableNativeFeedback onPress={() => console.log('ok') } > 
+					<TouchableNativeFeedback onPress={() => this.props.actu() } > 
 						<Image source={codeBar} style={styles.codeBar} />
 					</TouchableNativeFeedback> 
 					<TouchableNativeFeedback onPress={() => console.log('ok') } > 

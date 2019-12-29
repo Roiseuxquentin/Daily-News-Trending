@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import config from './config.json'
 
-import { StatusBar, StyleSheet, Text, View } from 'react-native'
+import { StatusBar, StyleSheet, Text, View, ScrollView } from 'react-native'
 
 import Loader from './components/loader.js'
 import Home from './components/Home.js'
@@ -47,7 +47,7 @@ export default class App extends Component {
             fetch(`http://${config.ipData}/failles`, settings) 
             .then(res => res.json() )
             .then(res => this.setState({payload : res.payload , dorks : res.dorks }))
-            .then(res => this.setState({loaded : true}))
+            .then(res => this.setState({loaded : 'home'}))
           })
         })
       })
@@ -55,8 +55,85 @@ export default class App extends Component {
   }
 
   display(page) {
-    if (this.state.loaded) {
-        return ( <Home grec={this.state.grec} />  )
+    if (!this.state.loaded) {
+      return ( <View >
+                <Loader />
+               </View>)
+    }else {
+      switch (this.state.loaded) {
+        case 'home' :
+          return ( <Home grec={this.state.grec} actu={() => this.setState({ loaded : 'actu' })} />  )
+          break;
+        case 'actu' :
+          return (
+            <ScrollView style={{ height : '100%' }} >
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+              <Text> SCROLLIING </Text>
+            </ScrollView>
+            )
+          break;
+        default :
+          return ( <Loader />  )
+      } 
             {/*
             <ScrollView style={{ height : '100%' }} >
               <HeaderZ />
@@ -69,10 +146,6 @@ export default class App extends Component {
               <GiveMeTwitter data={this.state.data} />
             </ScrollView>
             */}
-    }else {
-      return ( <View style={container} >
-                <Loader />
-               </View>)
     }
   }
 
@@ -88,11 +161,3 @@ export default class App extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  }
-})
