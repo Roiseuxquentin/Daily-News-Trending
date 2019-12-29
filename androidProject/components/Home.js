@@ -8,6 +8,17 @@ import capsuleCorp from '../ressources/images/capsuleCorp.png'
 import codeBar from '../ressources/images/codeBar.png'
 import planete from '../ressources/images/planete.png'
 
+// ################################################### 
+// #*/=============================================\*# 
+// # ||                      .__                  || #
+// # ||   ____   ____   ____ |  |   ____   ____   || #
+// # || _/ __ \_/ __ \ / ___\|  |  /  _ \ /  _ \  || #
+// # || \  ___/\  ___// /_/  >  |_(  <_> |  <_> ) || #
+// # ||  \___  >\___  >___  /|____/\____/ \____/  || #
+// # ||      \/     \/_____/                  2019|| #
+// #.\=============================================/.#
+// ###################################################
+
 class Home extends Component {
 	constructor(props) {
 		super(props)
@@ -101,7 +112,7 @@ class Home extends Component {
 					<TouchableNativeFeedback onPress={() => this.props.actu() } > 
 						<Image source={codeBar} style={styles.codeBar} />
 					</TouchableNativeFeedback> 
-					<TouchableNativeFeedback onPress={() => console.log('ok') } > 
+					<TouchableNativeFeedback onPress={() => this.props.oxygen() } > 
 						<Image source={planete} style={styles.planete} />
 					</TouchableNativeFeedback> 
 				</View>

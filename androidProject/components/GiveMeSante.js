@@ -67,6 +67,7 @@ class GiveMeSante extends Component {
 				width: '92%',
 				marginLeft : '4%',
 				marginBottom : 20,
+				marginTop : 20,
 				borderColor : 'green' ,
 			},
 			containerStyle: {

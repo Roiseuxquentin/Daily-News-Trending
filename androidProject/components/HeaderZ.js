@@ -86,7 +86,7 @@ export default function HeaderZ(props) {
     // Google
     case "google" :
       return (
-        <View style={{ borderColor: '#757575', borderWidth: 1 }} >
+        <View >
             <Image source={googleImg} style={styles.imgGoogle} />
         <View key={30 * Math.random()}  > 
                 <Image  source={searchImg} style={{zIndex: 0, width: '100%', height: 50, resizeMode: 'stretch' , position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}} />
