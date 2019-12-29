@@ -11,6 +11,8 @@ import GiveMeMoneyStack from './components/GiveMeMoneyStack.js'
 import GiveMeNewsPapers from './components/GiveMeNewsPapers.js'
 import GiveMeGoogle from './components/GiveMeGoogle.js'
 import GiveMeSante from './components/GiveMeSante.js'
+import GiveMeActu from './components/GiveMeActu.js'
+import GiveMePicture from './components/GiveMePicture.js'
 
 // ################################################### 
 // #*/=============================================\*# 
@@ -88,6 +90,8 @@ export default class App extends Component {
               <GiveMeNewsPapers />            
               <GiveMeGoogle data={this.state.data} />
               <GiveMeSante data={this.state.data} />            
+              <GiveMePicture data={this.state.data} />           
+              <GiveMeActu data={this.state.data} />           
             </ScrollView>
             )
           break;
@@ -96,8 +100,6 @@ export default class App extends Component {
       } 
             {/*
             <ScrollView style={{ height : '100%' }} >
-              <GiveMeSPicture data={this.state.data} />           
-              <GiveMeActu data={this.state.data} />           
               <GiveMeTwitter data={this.state.data} />
             </ScrollView>
             */}
