@@ -85,7 +85,7 @@ echo '"science" : [ '$SCIENCE'],'>> ./data/dailyData.json
 echo ' SCIENCE _ OK'
 
 # Photo 
-TOF=$(curl -s https://www.liberation.fr/top100/ | grep url | sed 's/\ \|url(\|?modified/\n/g' | grep photo | grep medias | sed 's/^/"/g' | sed 's/$/",/g' | sed '$ s/.$/] , /')
+TOF=$(curl -s https://www.liberation.fr/top100/ | grep url | sed 's/\ \|url(\|?modified/\n/g' | grep photo | grep medias | head -n 20 | sed 's/^/"/g' | sed 's/$/",/g' | sed '$ s/.$/] , /')
 echo '"photo" : ['$TOF >> ./data/dailyData.json
 echo ' PHOTO _ OK'
 
@@ -131,6 +131,37 @@ KORBEN=$(curl -s curl -s https://korben.info/feed | grep "<title>" | grep -v 'Ko
 echo '"korben" : '$KORBEN >> ./data/dailyData.json
 echo ' KORBEN _ OK'
 
+# --------------------------------------------------------------------------------------------------------
+## Audio
+###JOURNAL
+	# Détermine le moment de la journee
+H=$(date +%-H)
+
+if (( $H < 13 ))
+then
+	infoAudio="http://radiofrance-podcast.net/podcast09/rss_12559.xml"
+elif (( $H < 19 ))
+  then
+    infoAudio="http://radiofrance-podcast.net/podcast09/rss_11673.xml"
+else
+  infoAudio="http://radiofrance-podcast.net/podcast09/rss_11736.xml"
+fi
+
+INFOAUDIO=$(curl -s "$infoAudio" | grep -m 1 "mp3" | sed 's/^.*url="\|" len.*$//g' ) 
+echo '"newsaudio" : "'$INFOAUDIO'",' >> ./data/dailyData.json
+echo "AUDIO OK"
+
+# --------------------------------------------------------------------------------------------------------
+
+# VIDEO ZAP TV
+# curl -s 'https://www.youtube.com/channel/UCoRnHlbVByoYV6st5kPxOIQ/featured' | sed 's/href/\n href/g' | grep href | grep watch | sed 's/"/\n/g' | grep watch | head -n 2 | sed 1d 
+
+
+
+#curl -s https://www.ecoconso.be/last-publication-feed | grep title
+
+##TWITTER
+
 #MAKE BUFFER TWITTER PARIS
 touch ghost.twitter.html
 #CATCH DATA
@@ -158,6 +189,8 @@ head -n 50 ghost.twitter.buffer | awk '!a[$0]++' | sed 's/$/",/' | sed 's/^/"/' 
 echo ' TWITTER _ OK'
 
 
+
+# --------------------------------------------------------------------------------------------------------
 #CLEAN
 rm ghost.*
 
@@ -165,6 +198,3 @@ rm ghost.*
 cat ./data/dailyData.json | jq empty
 
 echo "_______D0n3"
-
-
-#curl -s https://www.ecoconso.be/last-publication-feed | grep title
