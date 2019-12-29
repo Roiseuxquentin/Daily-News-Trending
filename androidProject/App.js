@@ -6,6 +6,7 @@ import { StatusBar, StyleSheet, Text, View, ScrollView } from 'react-native'
 import Loader from './components/loader.js'
 import Home from './components/Home.js'
 
+import GiveMeMoneyStack from './components/GiveMeMoneyStack.js'
 
 export default class App extends Component {
 
@@ -67,67 +68,7 @@ export default class App extends Component {
         case 'actu' :
           return (
             <ScrollView style={{ height : '100%' }} >
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
-              <Text> SCROLLIING </Text>
+              <GiveMeMoneyStack data={this.state.data} />
             </ScrollView>
             )
           break;
@@ -137,7 +78,6 @@ export default class App extends Component {
             {/*
             <ScrollView style={{ height : '100%' }} >
               <HeaderZ />
-              <GiveMeMoney data={this.state.data} />
               <GiveMeNewsPapers />            
               <GiveMeGoogle data={this.state.data} />
               <GiveMeSante data={this.state.data} />            
