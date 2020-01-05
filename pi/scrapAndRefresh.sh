@@ -137,10 +137,12 @@ MEURICE_TITLE=$(curl -s 'http://radiofrance-podcast.net/podcast09/rss_14257.xml'
 echo '"meurice" : '$MEURICE_TITLE' ,' >> ./data/dailyData.json
 echo ' MEURICE _ OK'
 
-# KORBEN
-KORBEN=$(curl -s curl -s https://korben.info/feed | grep "<title>" | grep -v 'Korben\|Edito' | head -n 5 | sed 's/^.*<title>/"/g' | sed 's/<\/title>/",/g' | sed '1s/^/[/g' | sed '$ s/.$/],/g' )
-echo '"korben" : '$KORBEN >> ./data/dailyData.json
-echo ' KORBEN _ OK'
+# KORBEN 
+## BLOQUER SI TROP DE REQUETE
+# KORBEN=$(curl -s https://korben.info/feed | grep "<title>" | grep -v 'Korben\|Edito' | head -n 5 | sed 's/^.*<title>/"/g' | sed 's/<\/title>/",/g' | sed '$ s/.$//g' )
+# KORBEN=$(curl -s https://korben.info/feed | grep "<title>" | grep -v 'Korben\|Edito' | head -n 5 | sed 's/^.*<title>/"/g' | sed 's/<\/title>/",/g' | sed '1s/^/[/g' | sed '$ s/.$/],/g' )
+# echo '"korben" : [ '$KORBEN '],' >> ./data/dailyData.json
+# echo ' KORBEN _ OK'
 
 # --------------------------------------------------------------------------------------------------------
 ## Audio
