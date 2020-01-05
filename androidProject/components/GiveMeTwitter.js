@@ -48,12 +48,15 @@ class GiveMeTwitter extends Component {
 					else 
 						this.setState({display : 'none' })
 				}} >
-					<HeaderZ page="twitter" />
+			        <View>
+						<HeaderZ page="twitter" />
+			        </View>
 				</TouchableWithoutFeedback>
-
-			    <ScrollView  style={{backgroundColor : '#00acee', marginTop : 2 , display : this.state.display   }}>
-			    	{this.giveMeTweet(this.state.twitter)}
-			    </ScrollView>
+				<TouchableWithoutFeedback onPress={() => this.setState({display : 'none'}) } >
+				    <View  style={{backgroundColor : '#00acee', marginTop : 2 , display : this.state.display   }}>
+				    	{this.giveMeTweet(this.state.twitter)}
+				    </View>
+				</TouchableWithoutFeedback>
 			
 			</View> 
 		)

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { ScrollView } from 'react-native';
 import HeaderZ from '../components/HeaderZ.js'
 
+import GiveMeTextModal from '../components/GiveMeTextModal.js'
 import GiveMeTwitter from '../components/GiveMeTwitter.js'
 import GiveMeMozaic from '../components/GiveMeMozaic.js'
 import GiveMeAffiche from '../components/GiveMeAffiche.js'
@@ -22,26 +23,32 @@ import GiveMeText from '../components/GiveMeText.js'
 class ActuScreen extends Component {
 	constructor(props) {
 		super(props)
+
 	}
 
- render() {
+	render() {
       return (
-        <ScrollView style={{ height : '100%' , marginTop : 60 }} >
-			<GiveMeTwitter data={this.props.data.twitter} />
-			<GiveMeList data={this.props.data.kult[0]}  />
-			<GiveMeList data={this.props.data.kult[1]}  />
-			<GiveMeText data={this.props.data.citation} />
-			<GiveMeList data={this.props.data.series} title={"Series Populaires"} />
-			<GiveMeList data={this.props.data.films} title={"Films Populaires"} />
-			<GiveMeMozaic data={this.props.data.cinema} title={'Sortie Cinema 2 la Semaine'} />
-			<GiveMeMozaic data={this.props.data.futurCinemaIMG} title={'Films attendu par allocine'} />
-			<GiveMeText data={this.props.data.meurice} />
-        </ScrollView>
-        )
-			// <GiveMeMozaic data={this.props.data.filmsIMG} title={'Top des films allocine'} />
-			// <GiveMeMozaic data={this.props.data.seriesIMG} title={'top des series allocine'} />
-			// <GiveMeAffiche data={this.props.data.cinema} title={'topFilm'} />
- }
+	        <ScrollView style={{ height : '100%' , marginTop : 60 , marginBottom : 60}} >
+
+				<GiveMeTwitter data={this.props.data.twitter} />
+
+	        	<GiveMeTextModal title={'SOURIRE'} data={'JUSTE SOUS LE RIRE , DANS LA MESURE'}  />
+				<GiveMeText data={this.props.data.citation} />
+
+				<GiveMeMozaic  title={'Au Cine cette semaine'} data={this.props.data.cinema} open={(new Date().getDay() == 3) ? true : false  } />
+				<GiveMeList title={"Les Films a venir"} img={this.props.data.futurCinemaIMG} data={this.props.data.futurCinema} />
+			
+				<GiveMeList data={this.props.data.mondeArt} title={"World'Art"} />
+			
+				<GiveMeList data={this.props.data.ministereKult} title={"Le Ministere 2 Kulture"} open />
+			
+				<GiveMeList img={this.props.data.seriesIMG} data={this.props.data.series} title={"Les Series Populaires"} />
+				<GiveMeList img={this.props.data.filmsIMG} data={this.props.data.films} title={"Les Films Populaires"} />
+
+				<GiveMeList data={this.props.data.sorties} title={"Les Sorties"} />
+	        
+	        </ScrollView> )
+	}
 }
 
 export default ActuScreen;

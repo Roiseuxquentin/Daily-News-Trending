@@ -27,16 +27,19 @@ class GiveMePicModal extends Component {
 	render() {
 		return (
 		   	<View >
-		        
 		        <Modal
 		          animationType="slide"
 		          transparent={true}
 		          visible={this.state.modalVisible}>
-		          <View style={{position : 'absolute', top : 250 , left : 115 }}>
-		              <TouchableWithoutFeedback onPress={() => this.setModalVisible(!this.state.modalVisible) }>
-					   		<Image source={{uri : this.props.data }}  style={{width : 150 , height : 200}} />
-		              </TouchableWithoutFeedback>
-		          </View>
+	              <TouchableWithoutFeedback onPress={() => this.setModalVisible(!this.state.modalVisible) }>
+		       		   <View style={{ width : 400 ,
+				          				height : 750,
+				          				borderColor : 'pink',
+				          				borderWidth : 2 ,
+				          				backgroundColor : 'rgba(29, 202, 255, 0.6)' }} >
+					   		<Image source={{uri : this.props.data }}  style={{width : 150 , height : 200,position : 'absolute', top : 250 , left : 115 ,}} />
+		        	  </View>
+	              </TouchableWithoutFeedback>
 		        </Modal>
 
 		       <TouchableWithoutFeedback onPress={() => this.setModalVisible(true ) }>
