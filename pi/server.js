@@ -11,7 +11,8 @@ const Parser = require('rss-parser')
 // Middleware
 // app.use(bodyParser.urlencoded({ extended: true })) 
 app.use(cors())
-// app.use(express.static('public'))
+app.use(express.static('./public'))
+
 app.get('/dok', (req,res) => {
     const method = 'dayData,paper,grec,nobel,joke,failles,'
     res.send(method)    
