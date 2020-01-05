@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-import { Dimensions, ScrollView, View, Text, Image, TouchableHighlight } from 'react-native'
+import { Dimensions, ScrollView, View, Text, Image, TouchableWithoutFeedback } from 'react-native'
 
 import HeaderZ from './HeaderZ.js'
 
@@ -42,14 +42,14 @@ class GiveMeTwitter extends Component {
 		return (
 			<View> 
 				
-				<TouchableHighlight onPress={() => {
+				<TouchableWithoutFeedback onPress={() => {
 					if (this.state.display == 'none')
 						this.setState({display : 'flex' })
 					else 
 						this.setState({display : 'none' })
 				}} >
 					<HeaderZ page="twitter" />
-				</TouchableHighlight>
+				</TouchableWithoutFeedback>
 
 			    <ScrollView  style={{backgroundColor : '#00acee', marginTop : 2 , display : this.state.display   }}>
 			    	{this.giveMeTweet(this.state.twitter)}

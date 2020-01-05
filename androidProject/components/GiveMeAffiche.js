@@ -12,7 +12,7 @@ class GiveMeAffiche extends Component {
  render() {
    return (
    	<View style={{ flex : 1, justifyContent : 'center', alignItems : 'center'}} >
-   		<Text> Cinema </Text>
+   		<Text> {this.props.title}</Text>
 		<SliderBox sliderBoxHeight={300} parentWidth={220} images={this.props.data} />
    	</View>
    	)

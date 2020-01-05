@@ -84,9 +84,10 @@ class Home extends Component {
 										height : 100,
 									},
 									planete :{
+										marginTop : 25, 
 										marginLeft : 20, 
-										width : 100,
-										height : 100,
+										width : 80,
+										height : 70,
 									},
 						});
 		return (

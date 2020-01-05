@@ -39,7 +39,7 @@ class GiveMeNewsPaper extends Component {
       }
 
       const urls = [
-        `http://img.kiosko.net/${timer.getFullYear()}/${month}/${dayNumber - 1}/us/newyork_times.750.jpg`,
+        `http://img.kiosko.net/${timer.getFullYear()}/${month}/${dayNumber}/us/newyork_times.750.jpg`,
         `http://img.kiosko.net/${timer.getFullYear()}/${month}/${dayNumber}/fr/lefigaro.750.jpg`,
         `http://img.kiosko.net/${timer.getFullYear()}/${month}/${dayNumber}/ch/tribune_geneve.750.jpg`,
         `http://img.kiosko.net/${timer.getFullYear()}/${month}/${dayNumber}/uk/daily_telegraph.750.jpg`]
