@@ -61,7 +61,7 @@ echo ' SERIE IMG TOP _ OK'
 #KULT
 MINISTREKULTURE=$(curl -s https://www.culture.gouv.fr/rss/feed/actualites | grep title | head -n 5 | sed 's/"//g' | sed '1d' | sed 's/^.*<title>/"/g' |  sed 's/<.*$/",/g' | sed '$ s/.$//g' )
 ART=$(curl -s https://www.lemonde.fr/arts/rss_full.xml | sed 's/</\n/g' | grep CDATA | sed 'n; d' | sed 's/"//g' | sed 's/^.*\[\|\].*$/"/g' | sed 's/.$/",/g' | head -n 10 | sed '$ s/.$//g'  )
-echo '"kult" : ["MINISTERE DE LA CULTURE :" ,'$MINISTREKULTURE' ] , [ "LE MONDE ART :",'$ART'],' >> ./data/dailyData.json
+echo '"ministereKult" : [ '$MINISTREKULTURE' ] , "mondeArt" : ['$ART'],' >> ./data/dailyData.json
 echo ' CULTURE _ OK'
 
 
