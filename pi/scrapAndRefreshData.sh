@@ -1,5 +1,16 @@
 #!/bin/bash
 
+################################################### 
+#*/=============================================\*# 
+# ||                      .__                  || #
+# ||   ____   ____   ____ |  |   ____   ____   || #
+# || _/ __ \_/ __ \ / ___\|  |  /  _ \ /  _ \  || #
+# || \  ___/\  ___// /_/  >  |_(  <_> |  <_> ) || #
+# ||  \___  >\___  >___  /|____/\____/ \____/  || #
+# ||      \/     \/_____/                  2019|| #
+#.\=============================================/.#
+###################################################
+
 #MAKE BUFFER INFO
 touch ghost.info.html
 #CATCH DATA
@@ -23,7 +34,7 @@ echo '"citation" : '$CITATION >> ./data/dailyData.json
 echo ' CITATION _ OK'
 
 #CINEMA
-CINEIMG=$(curl -s https://www.offi.fr/cinema | grep jpg | grep files | sed 's/url("\|"/\n/g' | grep images | grep  -v background | sed 's/^/"/g' | sed 's/$/",/g' | sed '$ s/.$//g' )
+CINEIMG=$(curl -s https://www.offi.fr/cinema/nouveautes.html | grep jpg | grep files | sed 's/url("\|"/\n/g' | grep images | grep  -v background | sed 's/^/"/g' | sed 's/$/",/g' | sed '$ s/.$//g' )
 echo '"cinema" : ['$CINEIMG'],' >> ./data/dailyData.json
 echo ' CINEMA _ OK'
 
@@ -50,7 +61,7 @@ echo ' SERIE IMG TOP _ OK'
 #KULT
 MINISTREKULTURE=$(curl -s https://www.culture.gouv.fr/rss/feed/actualites | grep title | head -n 5 | sed 's/"//g' | sed '1d' | sed 's/^.*<title>/"/g' |  sed 's/<.*$/",/g' | sed '$ s/.$//g' )
 ART=$(curl -s https://www.lemonde.fr/arts/rss_full.xml | sed 's/</\n/g' | grep CDATA | sed 'n; d' | sed 's/"//g' | sed 's/^.*\[\|\].*$/"/g' | sed 's/.$/",/g' | head -n 10 | sed '$ s/.$//g'  )
-echo '"kult" : ["MINISTERE DE LA CULTURE :" ,'$MINISTREKULTURE', "LE MONDE ART :",'$ART'],' >> ./data/dailyData.json
+echo '"kult" : ["MINISTERE DE LA CULTURE :" ,'$MINISTREKULTURE' ] , [ "LE MONDE ART :",'$ART'],' >> ./data/dailyData.json
 echo ' CULTURE _ OK'
 
 
