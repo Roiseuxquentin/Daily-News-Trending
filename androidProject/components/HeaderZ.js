@@ -65,7 +65,7 @@ export default function HeaderZ(props) {
     twitterText: {
       color : '#00acee',
       textAlign : 'center',
-      fontSize: 42,
+      fontSize: 42
     },
     soustext : {
       color : '#00acee',
@@ -97,7 +97,7 @@ export default function HeaderZ(props) {
     // Twitter  
     case "twitter" :
       return (
-        <View>
+        <View >
             <Image source={twitterIMG} style={styles.twitterIMG} />
             <Text style={styles.twitterText} >un {giveMeFrenchDay()} </Text>
             <Text style={styles.soustext} >À {giveMeTime()}</Text>

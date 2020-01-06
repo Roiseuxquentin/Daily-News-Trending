@@ -9,6 +9,7 @@ import GiveMeGoogle from '../components/GiveMeGoogle.js'
 import GiveMeSante from '../components/GiveMeSante.js'
 import GiveMeActu from '../components/GiveMeActu.js'
 import GiveMePicture from '../components/GiveMePicture.js'
+import GiveMeRandomPic from '../components/GiveMeRandomPic.js'
 
 class ActuScreen extends Component {
 	constructor(props) {
@@ -20,12 +21,21 @@ class ActuScreen extends Component {
       return (
         <ScrollView style={{ height : '90%' , marginTop : 60 }} >
           <HeaderZ />
+
           <GiveMeMoneyStack data={this.props.data} />
           <GiveMeNewsPapers />            
-          <GiveMeSante data={this.props.data} />            
+
+          <GiveMeRandomPic data={"news"} max={35} />
+          
+          <GiveMeSante data={this.props.data} /> 
+
           <GiveMePicture data={this.props.data} />           
           <GiveMeActu data={this.props.data} />           
+          
+          <GiveMeRandomPic data={"news"} max={35} />
           <GiveMeGoogle data={this.props.data} />
+          <GiveMeRandomPic data={"detect"} max={24} mini />
+        
         </ScrollView>
         )
  }

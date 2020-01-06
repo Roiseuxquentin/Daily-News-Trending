@@ -23,7 +23,7 @@ class GiveMeTwitter extends Component {
 		super(props)
 		this.state = {
 			display : 'none' ,
-	  		twitter : ['paris,monde,states']
+	  		twitter : ['paris,monde,states','paris,monde,states','paris,monde,states']
 		 }
 
 	}
@@ -36,6 +36,12 @@ class GiveMeTwitter extends Component {
 		return tweets.map((elt,index) =>  <Text key={index} style={{color : 'white' ,textAlign : 'center', fontSize : 18  }} >{elt} </Text> )
 	}
 
+	displayMode(mode) {
+		if (mode == 'none')
+			return 'flex'
+		else 
+			return 'none'
+	}
 
 	render() {
 
@@ -48,9 +54,13 @@ class GiveMeTwitter extends Component {
 					else 
 						this.setState({display : 'none' })
 				}} >
-			        <View>
+			        <View style={{ backgroundColor : 'rgba(150,54,120, 0.2)' }} >
 						<HeaderZ page="twitter" />
+						<View style={{ display : this.displayMode(this.state.display) }} >
+						{this.giveMeTweet(this.state.twitter.slice(3,6))}
+			        	</View>
 			        </View>
+
 				</TouchableWithoutFeedback>
 				<TouchableWithoutFeedback onPress={() => this.setState({display : 'none'}) } >
 				    <View  style={{backgroundColor : '#00acee', marginTop : 2 , display : this.state.display   }}>

@@ -51,15 +51,13 @@ class GiveMeList extends Component {
 			</TouchableWithoutFeedback>
 
 			<TouchableWithoutFeedback onPress={() => this.setState({display : 'none' }) } >
-		   		<View  >
+		   		<View  style={{margin : 25 , display : this.state.display, flex : 1, flexDirection : 'row'}} >
 			        <FlatList
-			        	style={{margin : 25 , display : this.state.display}}
 			          	data={this.state.data}
 			          	renderItem={({item, index}) => {
-console.clear()
-			          		console.log('IMG : ', this.state.data)
 			          		if (!this.state.img) {
-			          			return <Text style={{fontSize : 1 ,
+			          			return <Text key={(index + (Math.random() * 100 ) )} 
+			          							style={{fontSize : 18 ,
 		          									marginTop : 5,
 		          									textAlign : 'center',
 		          									borderRadius :2,
@@ -74,13 +72,10 @@ console.clear()
 													elevation: 2,
 													padding : 15 }} > {item}</Text> 
 			          		}else {
-			          			return( <View style={{flex : 1,
-			          								 marginTop : 25,
-								          			 flexDirection : 'column' ,
-								          			 justifyContent : 'center',
-								          			 alignItems : 'center'}}>
+			          			return( <View key={(index + Math.random() * 100 )} 
+											 style={{grid : 1, marginTop : 25, justifyContent : 'center', alignItems : 'center'}} > 
 			          						<Text style={{fontSize : 24 , fontWeight : '800', marginTop : 5 }} >{item}</Text> 
-			          						<Image source={{uri : this.state.img[index]}} style={{width : 222 , height : 300}} /> 
+			          						<Image source={{uri : this.state.img[index]}} style={{width : 150 , height : 242, flex : 1}} /> 
 					          			</View>) 
 			          		}
 						}} />
