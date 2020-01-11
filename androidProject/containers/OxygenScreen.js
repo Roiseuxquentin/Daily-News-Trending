@@ -28,30 +28,28 @@ class ActuScreen extends Component {
 
 	render() {
       return (
-	        <ScrollView style={{ height : '100%' , marginTop : 60 , marginBottom : 60 ,backgroundColor : 'rgba(29, 202, 255, 0.2)' }} >
+	        <ScrollView style={{ height : '100%' , marginTop : 60 , marginBottom : 60 ,backgroundColor : 'rgba(29, 202, 255, 0.05)' }} >
 
 				<GiveMeTwitter data={this.props.data.twitter} />
-
 	        	<GiveMeTextModal title={'SOURIRE'} data={'JUSTE SOUS LE RIRE , DANS LA MESURE'}  />
-				<GiveMeText data={this.props.data.citation} />
-				
 				<GiveMeRandomPic data={"minion"} max={29} mini />
-
-
-				<GiveMeMozaic  title={'Au Cine cette semaine'} data={this.props.data.cinema} open={(new Date().getDay() == 3) ? true : false  } />
-				<GiveMeList title={"Les Sorties"} data={this.props.data.sorties} />
-			
+				<GiveMeText data={this.props.data.citation} />
+				<GiveMeMozaic title={'Dans les salles cette semaine'} data={this.props.data.cinema} open={(new Date().getDay() == 3) ? true : false  } />
+				<GiveMeList data={this.props.data.ministereKult} title={"Ministere de la Culture"} open={(new Date().getDay() == 1) ? true : false  } />
+				<GiveMeList title={"Les Sorties"} data={this.props.data.sorties} open={(new Date().getDay() == 5) ? true : false  } />
+				<GiveMeList title={"Prochainement dans les salles"} img={this.props.data.futurCinemaIMG} data={this.props.data.futurCinema} open={(new Date().getDay() == 6) ? true : false } />
 				<GiveMeRandomPic data={"minion"} max={29} />
-			
-				<GiveMeList data={this.props.data.ministereKult} title={"Le Ministere 2 Kulture"} open={(new Date().getDay() == 1) ? true : false  } />
+				<GiveMeText data="LA C LA PLACE DU FRUIT" />
 				<GiveMeList title={"World'Art"} data={this.props.data.mondeArt} />
+				<GiveMeText data="LA C LA PLACE DU LEGUME" />
+				<GiveMeList title={"Classement Series"} img={this.props.data.seriesIMG} data={this.props.data.series} />
+				<GiveMeList title={"Classement Films"} img={this.props.data.filmsIMG} data={this.props.data.films} />
+				<GiveMeText data="Classement Music" />
+				<GiveMeText data="..." />
+				<GiveMeText data="..." />
+				<GiveMeText data="..." />
+				<GiveMeText data="..." />
 			
-				<GiveMeRandomPic data={"diod"} max={24} mini />
-				<GiveMeList title={"Les Films a venir"} img={this.props.data.futurCinemaIMG} data={this.props.data.futurCinema} />
-				<GiveMeList title={"Les Series Populaires"} img={this.props.data.seriesIMG} data={this.props.data.series} />
-				<GiveMeList title={"Les Films Populaires"} img={this.props.data.filmsIMG} data={this.props.data.films} />
-
-	        
 	        </ScrollView> )
 	}
 }

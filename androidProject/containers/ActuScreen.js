@@ -11,15 +11,25 @@ import GiveMeActu from '../components/GiveMeActu.js'
 import GiveMePicture from '../components/GiveMePicture.js'
 import GiveMeRandomPic from '../components/GiveMeRandomPic.js'
 
+// ################################################### 
+// #*/=============================================\*# 
+// # ||                      .__                  || #
+// # ||   ____   ____   ____ |  |   ____   ____   || #
+// # || _/ __ \_/ __ \ / ___\|  |  /  _ \ /  _ \  || #
+// # || \  ___/\  ___// /_/  >  |_(  <_> |  <_> ) || #
+// # ||  \___  >\___  >___  /|____/\____/ \____/  || #
+// # ||      \/     \/_____/                  2019|| #
+// #.\=============================================/.#
+// ###################################################
+
 class ActuScreen extends Component {
 	constructor(props) {
 		super(props)
 	}
 
  render() {
-   
       return (
-        <ScrollView style={{ height : '90%' , marginTop : 60 }} >
+        <ScrollView style={{ height : '90%' , marginTop : 60, backgroundColor : 'rgba(29, 202, 255, 0.05)' }} >
           <HeaderZ />
 
           <GiveMeMoneyStack data={this.props.data} />
@@ -29,7 +39,8 @@ class ActuScreen extends Component {
           
           <GiveMeSante data={this.props.data} /> 
 
-          <GiveMePicture data={this.props.data} />           
+          <GiveMePicture data={this.props.data} />
+
           <GiveMeActu data={this.props.data} />           
           
           <GiveMeRandomPic data={"news"} max={35} />

@@ -54,7 +54,7 @@ class GiveMeTwitter extends Component {
 					else 
 						this.setState({display : 'none' })
 				}} >
-			        <View style={{ backgroundColor : 'rgba(150,54,120, 0.2)' }} >
+			        <View style={{ backgroundColor : 'rgba(255,255,255, 1)' }} >
 						<HeaderZ page="twitter" />
 						<View style={{ display : this.displayMode(this.state.display) }} >
 						{this.giveMeTweet(this.state.twitter.slice(3,6))}

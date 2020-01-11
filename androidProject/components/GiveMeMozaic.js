@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import { View, Text, Image, TouchableWithoutFeedback} from 'react-native';
+
+import { View, Text, Image, TouchableWithoutFeedback, FlatList} from 'react-native';
 
 import GiveMePicModal from './GiveMePicModal.js'
 
@@ -38,25 +39,6 @@ class GiveMeMozaic extends Component {
 		this.setState({data : this.props.data})
 	}
 
-	row(pics) {
-		let sizeOfRow = [0,7,14]
-
-		return sizeOfRow.map((elt , index) => {
-			if ( !!pics[elt]) {
-				return (<View key={index + Math.random() * 10 }
-								 style={{flexDirection: 'row', height: 75, justifyContent : 'center', display : this.state.display   }} >
-					   			{this.displayPics(pics.slice(elt,(elt + 7)))}
-					   	</View>)
-			}
-		})
-	}
-
-	displayPics(pics) {
-		return pics.map((pic, index) => {
-			return ( <GiveMePicModal key={index} data={pic} /> )
-		})
-	}
-
 	  setModalVisible(visible, pic) {
 	    this.setState({modalVisible: visible, currentImg : pic });
 	  }
@@ -79,7 +61,11 @@ class GiveMeMozaic extends Component {
 
 	
 					<View style={{display : this.state.display}}>
-			   			{this.row(this.state.data)}
+			   			<FlatList data={this.state.data}
+						      numColumns={5}
+						      renderItem={({item, index}) => {
+						      			return ( <GiveMePicModal key={index} data={item}  />  ) 
+						      		} } />
 					</View>
 		   	
 

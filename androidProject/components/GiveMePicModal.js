@@ -44,7 +44,7 @@ class GiveMePicModal extends Component {
 
 		       <TouchableWithoutFeedback onPress={() => this.setModalVisible(true ) }>
 					<Image source={{uri : this.props.data}} 
-								style={{flex : 1, margin : 3 , width : 42 , height : 42}} />
+								style={{flex : 1, margin : 2 , width : 65 , height : 65}} />
 		        </TouchableWithoutFeedback>
 
 		   	</View>
