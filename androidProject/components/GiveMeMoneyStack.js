@@ -54,7 +54,7 @@ class GiveMeMoneyStack extends Component {
 				marginLeft : '8%',
 				marginTop : 20,
 				marginBottom : 20,
-				borderColor : 'black',
+				borderColor : 'rgba(174, 182, 191, 1)' ,
 				borderRadius : 5,
 				borderBottomWidth : 2,
 				borderTopWidth : 2

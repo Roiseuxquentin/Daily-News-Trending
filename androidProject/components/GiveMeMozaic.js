@@ -36,7 +36,11 @@ class GiveMeMozaic extends Component {
 		if (this.props.open) {
 			this.setState({display : 'flex'})
 		}
-		this.setState({data : this.props.data})
+
+		const DATA = this.props.data.map((elt) => {
+			      return { id: (Math.random * 100), src: elt };
+			    });
+		this.setState({data : DATA})
 	}
 
 	  setModalVisible(visible, pic) {
@@ -63,8 +67,9 @@ class GiveMeMozaic extends Component {
 					<View style={{display : this.state.display}}>
 			   			<FlatList data={this.state.data}
 						      numColumns={5}
+				    		  keyExtractor={(item, index) => (index + Math.random()).toString()} 
 						      renderItem={({item, index}) => {
-						      			return ( <GiveMePicModal key={index} data={item}  />  ) 
+						      			return ( <GiveMePicModal key={index} data={item.src}  />  ) 
 						      		} } />
 					</View>
 		   	

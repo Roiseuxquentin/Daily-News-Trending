@@ -40,7 +40,7 @@ echo ' CINEMA _ OK'
 
 #FUTUR MOVIE
 CINEFUTUR=$(curl -s http://www.allocine.fr/film/attendus/ |sed 's/</\n/g' | grep fichefilm | grep class | sed 's/^.*>//g' | head -n 21 | sed 's/^/"/g' | sed 's/$/",/g' | sed '$ s/.$//g'  )
-CINEFUTURIMG=$(curl -s http://www.allocine.fr/film/attendus/ |sed 's/</\n/g' | grep img | grep Bande-annonce | head -n 21 |  sed 's/"/\n/g' | grep jpg | head -n 12 | sed 's/^/"/g' | sed 's/$/",/g' | sed '$ s/.$//g' )
+CINEFUTURIMG=$(curl -s http://www.allocine.fr/film/attendus/ |sed 's/</\n/g' | grep img | grep Bande-annonce | head -n 21 |  sed 's/"/\n/g' | grep jpg | head -n 21 | sed 's/^/"/g' | sed 's/$/",/g' | sed '$ s/.$//g' )
 echo '"futurCinema" : ['$CINEFUTUR'], "futurCinemaIMG" : ['$CINEFUTURIMG'],' >> /home/pi/Daily-News-Trending/pi/data/dailyData.json
 echo ' CINEMA A VENIR _ OK'
 
@@ -200,8 +200,6 @@ cat ghost.twitter.html | sed 's/https/\n/g' | grep -o 'twitter.com/search?q=.*/a
 #FORMAT DATA
 head -n 50 ghost.twitter.buffer | awk '!a[$0]++' | sed 's/$/",/' | sed 's/^/"/' | sed '1i " ", " 🇺🇸 "," ", ' | sed '$ s/.$/] }/' >> /home/pi/Daily-News-Trending/pi/data/dailyData.json
 echo ' TWITTER _ OK'
-
-
 
 # --------------------------------------------------------------------------------------------------------
 #CLEAN

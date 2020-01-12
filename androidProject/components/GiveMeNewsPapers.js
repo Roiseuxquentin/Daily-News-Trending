@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { SliderBox } from "react-native-image-slider-box";
-import Loader from './loader.js'
+import { Image, View } from 'react-native';
 
-import { Image } from 'react-native';
+import { SliderBox } from "react-native-image-slider-box";
 
 // ################################################### 
 // #*/=============================================\*# 
@@ -43,15 +42,16 @@ class GiveMeNewsPaper extends Component {
         `http://img.kiosko.net/${timer.getFullYear()}/${month}/${dayNumber}/fr/lefigaro.750.jpg`,
         `http://img.kiosko.net/${timer.getFullYear()}/${month}/${dayNumber}/ch/tribune_geneve.750.jpg`,
         `http://img.kiosko.net/${timer.getFullYear()}/${month}/${dayNumber}/uk/daily_telegraph.750.jpg`]
-
-      this.setState({ urls : urls })
+      if ((timer.getDay() !== 0)&&(timer.getDay() < 6)) {
+        this.setState({ urls : urls })
+      }
     }
 
   render() {
     if (this.state.urls) {
       return ( <SliderBox sliderBoxHeight={650} images={this.state.urls} /> )
     } else {
-      return ( <Loader /> )
+      return ( <View /> )
     }
   }
 }

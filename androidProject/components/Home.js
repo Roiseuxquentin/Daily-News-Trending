@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
 import { View, Dimensions, StyleSheet, Image, TouchableNativeFeedback, Text } from 'react-native'
 import { Video } from 'expo-av';
-
 import { SliderBox } from "react-native-image-slider-box";
+
+import Loader from './loader.js'
 
 import capsuleCorp from '../ressources/images/capsuleCorp.png'
 import codeBar from '../ressources/images/codeBar.png'
@@ -23,6 +24,7 @@ class Home extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
+			status : true,
 			// moment : require('../ressources/images/kamehouseSOIREE.jpg') ,
 			grec : { source : 'eterdam' , 
 					racine : 'advitam' ,
@@ -90,39 +92,48 @@ class Home extends Component {
 										height : 70,
 									},
 						});
-		return (
-			<View style={{grid: 1, gridDirection: 'column', justifyContent: 'center', alignItems: 'center',marginTop : 2}} >
+		if (this.state.status) {
 
-                <Video
-                  source={require('./../ressources/video/background.mp4')}
-                  isLooping
-                  resizeMode={Video.RESIZE_MODE_COVER}
-                  shouldPlay
-                  style={{ position : 'absolute', width: 360, height: 1300 }}
-                />					  
-			        
-				<Image source={capsuleCorp} style={{ height : 450, width : '100%', }} />
-				
-				<Text style={{ borderColor : 'white', borderTopWidth : 1 , borderBottomWidth : 1 , marginTop : 20 }}>
-					<Text style={styles.source}> {this.state.grec.source}</Text>
-					<Text style={styles.grecText} >{this.state.grec.racine}</Text>
-					<Text style={styles.text} >{this.state.grec.traduction}</Text>
-				</Text>
+			return (
+				<View style={{grid: 1, gridDirection: 'column', justifyContent: 'center', alignItems: 'center',marginTop : 2}} >
 
-				<View style={{flex : 1, flexDirection : 'row', marginTop : 20 }} >
-					<TouchableNativeFeedback onPress={() => this.props.actu() } > 
-						<Image source={codeBar} style={styles.codeBar} />
-					</TouchableNativeFeedback> 
-					<TouchableNativeFeedback onPress={() => this.props.oxygen() } > 
-						<Image source={planete} style={styles.planete} />
-					</TouchableNativeFeedback> 
-				</View>
+		            <Video
+		              source={require('./../ressources/video/background.mp4')}
+		              isLooping
+		              resizeMode={Video.RESIZE_MODE_COVER}
+		              shouldPlay
+		              style={{ position : 'absolute', width: 360, height: 1300 }}
+		            />					  
+				        
+					<Image source={capsuleCorp} style={{ height : 450, width : '100%', }} />
 					
+					<Text style={{ borderColor : 'white', borderTopWidth : 1 , borderBottomWidth : 1 , marginTop : 20 }}>
+						<Text style={styles.source}> {this.state.grec.source}</Text>
+						<Text style={styles.grecText} >{this.state.grec.racine}</Text>
+						<Text style={styles.text} >{this.state.grec.traduction}</Text>
+					</Text>
 
-			</View>
-		)
+					<View style={{flex : 1, flexDirection : 'row', marginTop : 20 }} >
+						<TouchableNativeFeedback onPress={() => {
+							this.setState({status : false })
+							setTimeout(() => this.props.actu() , 200 )
+						} } > 
+							<Image source={codeBar} style={styles.codeBar} />
+						</TouchableNativeFeedback> 
+						<TouchableNativeFeedback onPress={() =>  {
+							this.setState({status : false })
+							setTimeout(() => this.props.oxygen() , 200 )
+						}  } > 
+							<Image source={planete} style={styles.planete} />
+						</TouchableNativeFeedback> 
+					</View>
+
+				</View>
+			)
+		} else {
+			return <Loader />
+		}
 	}
-
 }
 
 export default Home

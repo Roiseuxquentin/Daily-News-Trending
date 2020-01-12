@@ -33,7 +33,8 @@ class GiveMeTwitter extends Component {
 		}
 	}
 	giveMeTweet(tweets) {
-		return tweets.map((elt,index) =>  <Text key={index} style={{color : 'white' ,textAlign : 'center', fontSize : 18  }} >{elt} </Text> )
+		return tweets.map((elt,index) =>  <Text key={index} 
+												style={{color : (this.state.display === 'none') ? 'pink' : 'white' ,textAlign : 'center', fontSize : 18  }} >{elt} </Text> )
 	}
 
 	displayMode(mode) {
@@ -54,7 +55,7 @@ class GiveMeTwitter extends Component {
 					else 
 						this.setState({display : 'none' })
 				}} >
-			        <View style={{ backgroundColor : 'rgba(255,255,255, 1)' }} >
+			        <View>
 						<HeaderZ page="twitter" />
 						<View style={{ display : this.displayMode(this.state.display) }} >
 						{this.giveMeTweet(this.state.twitter.slice(3,6))}

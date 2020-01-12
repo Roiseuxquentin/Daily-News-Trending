@@ -5,12 +5,16 @@ class GiveMeTextList extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			  data : null,
+			  data : {id : 42, src : 'load...'},
   		}
 	}
 
 	componentDidMount() {
-		this.setState({data : this.props.data})
+
+		const DATA = this.props.data.map((elt) => {
+			      return { id: (Math.random * 100), src: elt };
+			    });
+		this.setState({data : DATA})
 	}
 
  render() {
@@ -18,13 +22,13 @@ class GiveMeTextList extends Component {
         <FlatList
 		          	data={this.state.data}
 			        numColumns={1}
+		    		  keyExtractor={(item, index) => (index + Math.random()).toString()} 
 		          	renderItem={({item, index}) => {
-		          			return <Text key={(index + (Math.random() * 100 ) )} 
-		          							style={{fontSize : 18 ,
+		          			return <Text style={{fontSize : 18 ,
 	          									marginTop : 5,
 	          									textAlign : 'center',
 	          									borderRadius :2,
-					   							shadowColor: "green",
+					   					 		shadowColor: "green",
 												shadowOpacity: 0.20,
 												shadowRadius: 1.41,
 												shadowOffset: {
@@ -33,9 +37,9 @@ class GiveMeTextList extends Component {
 												},
 												height: 100,
 												elevation: 2,
-												padding : 15 }} > {item}</Text> 
+												padding : 15 }} 
+										key={Number(item.id)} > {item.src}</Text> 
 					}} />
-  
    	)
  }
 }

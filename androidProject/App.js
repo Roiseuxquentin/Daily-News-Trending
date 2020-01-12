@@ -77,7 +77,8 @@ export default class App extends Component {
     }else {
       switch (this.state.loaded) {
         case 'home' :
-          return ( <Home grec={this.state.grec} actu={() => this.setState({ loaded : 'actu' })} oxygen={() => this.setState({loaded : 'oxygen'})} />  )
+          return ( <Home grec={this.state.grec} actu={() => this.setState({ loaded : 'actu'}) }
+                                                 oxygen={() => this.setState({loaded : 'oxygen'})} />  )
           break;
         case 'actu' :
           return (<ActuScreen data={this.state.data} />)
@@ -94,9 +95,8 @@ export default class App extends Component {
 
   render() {
     return (
-
       <View style={{grid: 1}} >
-        <NavBar home={() => this.setState({loaded : 'home'})} audio={this.state.data.newsaudio} />
+        <NavBar home={() => this.setState({loaded : 'home'})} audio={this.state.data.newsaudio}  visible={this.state.loaded} />
         <StatusBar  hidden />
         {this.display('home')}
       </View>

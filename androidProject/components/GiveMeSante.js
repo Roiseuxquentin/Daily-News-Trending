@@ -72,6 +72,7 @@ class GiveMeSante extends Component {
 			},
 			containerStyle: {
 				borderRadius: 3,
+				backgroundColor :  'rgba(214, 234, 248, 0.5)',
 				shadowColor: "#000",
 				shadowOffset: {
 					width: 0,

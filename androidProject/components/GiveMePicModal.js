@@ -37,7 +37,7 @@ class GiveMePicModal extends Component {
 				          				borderColor : 'pink',
 				          				borderWidth : 2 ,
 				          				backgroundColor : 'rgba(29, 202, 255, 0.6)' }} >
-					   		<Image source={{uri : this.props.data }}  style={{width : 150 , height : 200,position : 'absolute', top : 250 , left : 115 ,}} />
+					   		<Image source={{uri : this.props.data}}  style={{width : 150 , height : 200,position : 'absolute', top : 250 , left : 115 ,}} />
 		        	  </View>
 	              </TouchableWithoutFeedback>
 		        </Modal>

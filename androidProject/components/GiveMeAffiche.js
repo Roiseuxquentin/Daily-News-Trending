@@ -20,6 +20,7 @@ class GiveMeAffiche extends Component {
    return (
 		<FlatList data={this.state.data}
 			      numColumns={4}
+	    		  keyExtractor={(item, index) => (index + Math.random()).toString()} 
 			      renderItem={({item, index}) => {
 			      		if (!this.state.img) {
 			      			return <Loader /> 

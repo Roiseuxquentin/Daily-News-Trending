@@ -78,7 +78,7 @@ export default function HeaderZ(props) {
       fontSize: 24,
     }, 
     container : {
-      marginTop : 30,
+      marginTop : 0,
     }
   })
     
@@ -104,10 +104,7 @@ export default function HeaderZ(props) {
         </View>)
       break
     default :
-      return (
-          <View style={styles.container} >
-            <Text style={styles.homeText} >{giveMeFrenchDay()} {giveMeDate()} { giveMeMonth[aujourdhui.getMonth()] }</Text>
-        </View>)
+      return (<Text style={styles.homeText} >{giveMeFrenchDay()} {giveMeDate()} { giveMeMonth[aujourdhui.getMonth()] }</Text>)
   }
 
 }

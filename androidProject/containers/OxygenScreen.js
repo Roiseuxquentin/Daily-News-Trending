@@ -28,12 +28,12 @@ class ActuScreen extends Component {
 
 	render() {
       return (
-	        <ScrollView style={{ height : '100%' , marginTop : 60 , marginBottom : 60 ,backgroundColor : 'rgba(29, 202, 255, 0.05)' }} >
+	        <ScrollView style={{ height : '91%' , marginTop : 60 , backgroundColor : 'rgba(29, 202, 255, 0.05)' }} >
 
-				<GiveMeTwitter data={this.props.data.twitter} />
 	        	<GiveMeTextModal title={'SOURIRE'} data={'JUSTE SOUS LE RIRE , DANS LA MESURE'}  />
 				<GiveMeRandomPic data={"minion"} max={29} mini />
 				<GiveMeText data={this.props.data.citation} />
+				<GiveMeTwitter data={this.props.data.twitter} />
 				<GiveMeMozaic title={'Dans les salles cette semaine'} data={this.props.data.cinema} open={(new Date().getDay() == 3) ? true : false  } />
 				<GiveMeList data={this.props.data.ministereKult} title={"Ministere de la Culture"} open={(new Date().getDay() == 1) ? true : false  } />
 				<GiveMeList title={"Les Sorties"} data={this.props.data.sorties} open={(new Date().getDay() == 5) ? true : false  } />

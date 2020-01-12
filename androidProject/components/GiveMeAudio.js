@@ -16,7 +16,6 @@ export default class GiveMeAudio extends React.Component {
 
 
 	async componentDidMount() {
-		console.log('HEHHOOOO ICI C LA LA VARIABLE ICI OUI /// ', this.props.audio)
 		// this.setState({ url : this.props.audio} )
 		try {
 			await Audio.setAudioModeAsync({
@@ -28,10 +27,12 @@ export default class GiveMeAudio extends React.Component {
 				staysActiveInBackground: true,
 				playThroughEarpieceAndroid: true
 			})
-			this.loadAudio()
 		} catch (e) {
 			console.log(e)
 		}
+	}
+	componentDidMount() {
+			this.loadAudio()
 	}
 
 	async loadAudio() {
@@ -40,8 +41,8 @@ export default class GiveMeAudio extends React.Component {
 		try {
 			const playbackInstance = new Audio.Sound()
 			const source = {
-				uri : 'http://rf.proxycast.org/1654001251106430976/11673-27.12.2019-ITEMA_22240004-0.mp3',
-				// uri: this.props.audio
+				// uri : 'http://rf.proxycast.org/1654001251106430976/11673-27.12.2019-ITEMA_22240004-0.mp3',
+				uri: this.props.audio
 			}
 
 			const status = {
@@ -66,6 +67,10 @@ export default class GiveMeAudio extends React.Component {
 	}
 
 	handlePlayPause = async () => {
+		if ( !this.state.isPlaying) {
+			setTimeout(this.handlePlayPause  , 60000 )
+		}
+		
 		const { isPlaying, playbackInstance } = this.state
 		isPlaying ? await playbackInstance.pauseAsync() : await playbackInstance.playAsync()
 

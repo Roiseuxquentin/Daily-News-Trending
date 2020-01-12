@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { View, FlatList, Text, Image, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, Image, TouchableWithoutFeedback } from 'react-native';
 
 
 import GiveMeTextList from './GiveMeTextList.js'
@@ -39,7 +39,7 @@ class GiveMeList extends Component {
 
  render() {
    return (
-	   	<View style={{ marginTop : 15 }} >
+	   	<View style={{ marginTop : 15, marginBottom : 15 }} >
 
 			<TouchableWithoutFeedback onPress={() => {
 													if (this.state.display == 'none')

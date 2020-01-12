@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import { ScrollView } from 'react-native';
 
-import HeaderZ from '../components/HeaderZ.js'
 
 import GiveMeMoneyStack from '../components/GiveMeMoneyStack.js'
 import GiveMeNewsPapers from '../components/GiveMeNewsPapers.js'
 import GiveMeGoogle from '../components/GiveMeGoogle.js'
+import GiveMeList from '../components/GiveMeList.js'
 import GiveMeSante from '../components/GiveMeSante.js'
 import GiveMeActu from '../components/GiveMeActu.js'
 import GiveMePicture from '../components/GiveMePicture.js'
@@ -29,23 +29,25 @@ class ActuScreen extends Component {
 
  render() {
       return (
-        <ScrollView style={{ height : '90%' , marginTop : 60, backgroundColor : 'rgba(29, 202, 255, 0.05)' }} >
-          <HeaderZ />
+        <ScrollView style={{ height : '91%' , marginTop : 60, backgroundColor : 'rgba(242, 243, 244, 0.5)' }} >
 
           <GiveMeMoneyStack data={this.props.data} />
           <GiveMeNewsPapers />            
 
           <GiveMeRandomPic data={"news"} max={35} />
+          <GiveMeGoogle data={this.props.data} />
           
-          <GiveMeSante data={this.props.data} /> 
-
+          <GiveMeList title={"La Une"} data={this.props.data.une} />
+          
           <GiveMePicture data={this.props.data} />
 
-          <GiveMeActu data={this.props.data} />           
-          
+          <GiveMeSante data={this.props.data} /> 
+
           <GiveMeRandomPic data={"news"} max={35} />
-          <GiveMeGoogle data={this.props.data} />
+
+          <GiveMeActu data={this.props.data} />           
           <GiveMeRandomPic data={"detect"} max={24} mini />
+          
         
         </ScrollView>
         )
