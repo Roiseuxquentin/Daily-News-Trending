@@ -1,8 +1,11 @@
 import React, {Component} from 'react'
+import { LinearGradient } from 'expo-linear-gradient';
 
 import { Dimensions, ScrollView, View, Text, Image, TouchableWithoutFeedback } from 'react-native'
 
 import HeaderZ from './HeaderZ.js'
+import down from './../ressources/images/down.png';
+import up from './../ressources/images/up.png';
 
 // ################################################### 
 // #*/=============================================\*# 
@@ -34,7 +37,7 @@ class GiveMeTwitter extends Component {
 	}
 	giveMeTweet(tweets) {
 		return tweets.map((elt,index) =>  <Text key={index} 
-												style={{color : (this.state.display === 'none') ? 'pink' : 'white' ,textAlign : 'center', fontSize : 18  }} >{elt} </Text> )
+												style={{ color : '#00acee' ,textAlign : 'center', fontSize : 18  }} >{elt} </Text> )
 	}
 
 	displayMode(mode) {
@@ -47,7 +50,7 @@ class GiveMeTwitter extends Component {
 	render() {
 
 		return (
-			<View> 
+			<View style={{backgroundColor : 'white'}}>  
 				
 				<TouchableWithoutFeedback onPress={() => {
 					if (this.state.display == 'none')
@@ -57,16 +60,25 @@ class GiveMeTwitter extends Component {
 				}} >
 			        <View>
 						<HeaderZ page="twitter" />
-						<View style={{ display : this.displayMode(this.state.display) }} >
-						{this.giveMeTweet(this.state.twitter.slice(3,6))}
-			        	</View>
+						    <LinearGradient colors={[ 'transparent' , 'rgba(29, 202, 255, 0.05)', 'white' ]}
+					          				style={{ display : this.displayMode(this.state.display),
+					          						 marginTop : 10,
+					          						 padding: 15,
+					          						 alignItems: 'center',
+					          						 borderRadius: 5 }}>
+								{this.giveMeTweet(this.state.twitter.slice(3,6))}
+						    <View style={{flex : 1, justifyContent : 'center' , alignItems : 'center', marginTop : 10 }} >
+	            				<Image source={(this.state.display == 'none' ) ? down : up } style={{marginTop : 5, width : 20 , height : 20 }} />
+						    </View>
+						    </LinearGradient>
 			        </View>
 
 				</TouchableWithoutFeedback>
 				<TouchableWithoutFeedback onPress={() => this.setState({display : 'none'}) } >
-				    <View  style={{backgroundColor : '#00acee', marginTop : 2 , display : this.state.display   }}>
-				    	{this.giveMeTweet(this.state.twitter)}
-				    </View>
+					<LinearGradient colors={['transparent' , 'rgba(29, 202, 255, 0.5)' , 'transparent', ]}
+					          style={{ padding: 15, alignItems: 'center', borderRadius: 5,  display : this.state.display }}>
+					    	{this.giveMeTweet(this.state.twitter)}
+					</LinearGradient>
 				</TouchableWithoutFeedback>
 			
 			</View> 

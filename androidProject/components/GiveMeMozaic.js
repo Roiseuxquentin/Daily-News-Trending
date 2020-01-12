@@ -56,7 +56,7 @@ class GiveMeMozaic extends Component {
 									this.setState({display : 'flex' })
 								else 
 									this.setState({display : 'none' }) }} >
-	   				<Text style={{textAlign : 'center', fontSize : 24}} > 
+	   				<Text style={{textAlign : 'center', fontSize : 24, textDecorationLine : 'underline'}} > 
 		   				{this.props.title} 
 						<View style={{width : 10 , height : 1}} />
 	            		<Image source={(this.state.display == 'none' ) ? down : up } style={{width : 20 , height : 20 }} />

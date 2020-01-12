@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
+
 import { View, Text, Image , Modal, TouchableWithoutFeedback} from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 /*==========================================='\ 
 ||                      .__                  || 
@@ -42,24 +44,27 @@ class GiveMeTextModal extends Component {
 							   		 				marginTop : 270 }} >
 			   							{this.props.data}
 			   						</Text>
-				          
 				          </View>
 		              </TouchableWithoutFeedback>
 		        </Modal>
 
 		       <TouchableWithoutFeedback onPress={() => this.setModalVisible(true ) }>
-					   		<Text style={{textAlign : 'center', fontSize : 24,  fontStyle : 'italic' }} >
-						   		<Text style={{ fontSize : 50, fontWeight : '800' }} >"</Text>
-						   		{this.props.title}
-						   		<Text style={{ fontSize : 50, fontWeight : '800' }} >"</Text>
-					   		</Text>
+			   		<LinearGradient colors={[ 'white' , 'rgba(29, 202, 255, 0.1)', 'transparent'  ]}
+			          				style={{ padding: 50,
+			          						 alignItems: 'center',
+			          						 borderRadius: 5 }}>
+
+				   		<Text style={{textAlign : 'center', fontSize : 24, fontStyle : 'italic' }} >
+					   		<Text style={{ fontSize : 50, fontWeight : '800' }} >"</Text>
+					   		{this.props.title}
+					   		<Text style={{ fontSize : 50, fontWeight : '800' }} >"</Text>
+				   		</Text>
+				    </LinearGradient>    
 		        </TouchableWithoutFeedback>
 
 		   	</View>
 		)
 	}
-
-
 }
 
 export default GiveMeTextModal

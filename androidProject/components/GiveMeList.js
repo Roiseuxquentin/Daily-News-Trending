@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { View, Text, Image, TouchableWithoutFeedback } from 'react-native';
-
+import { LinearGradient } from 'expo-linear-gradient';
 
 import GiveMeTextList from './GiveMeTextList.js'
 import GiveMeAffiche from './GiveMeAffiche.js'
@@ -39,20 +39,24 @@ class GiveMeList extends Component {
 
  render() {
    return (
-	   	<View style={{ marginTop : 15, marginBottom : 15 }} >
+	   	<View >
+		    <LinearGradient colors={[ 'transparent' , 'white', 'transparent'  ]}
+		          				style={{ padding: 15,
+		          						 alignItems: 'center',
+		          						 borderRadius: 5 }}>
+				<TouchableWithoutFeedback onPress={() => {
+														if (this.state.display == 'none')
+															this.setState({display : 'flex' })
+														else 
+															this.setState({display : 'none' }) }} >
 
-			<TouchableWithoutFeedback onPress={() => {
-													if (this.state.display == 'none')
-														this.setState({display : 'flex' })
-													else 
-														this.setState({display : 'none' }) }} >
-
-				<Text style={{textAlign : 'center', fontSize : 24 }} > 
-					{this.props.title}
-					<View style={{width : 10 , height : 1}} />
-            		<Image source={(this.state.display == 'none' ) ? down : up } style={{width : 20 , height : 20 }} />
-				</Text>
-			</TouchableWithoutFeedback>
+					<Text style={{textAlign : 'center', fontSize : 20 }} > 
+						{this.props.title}
+						<View style={{width : 10 , height : 1}} />
+	            		<Image source={(this.state.display == 'none' ) ? down : up } style={{width : 20 , height : 20 }} />
+					</Text>
+				</TouchableWithoutFeedback>
+		    </LinearGradient>
 
 
 			<TouchableWithoutFeedback onPress={() => this.setState({display : 'none' }) } >

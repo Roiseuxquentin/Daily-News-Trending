@@ -28,16 +28,16 @@ class ActuScreen extends Component {
 
 	render() {
       return (
-	        <ScrollView style={{ height : '91%' , marginTop : 60 , backgroundColor : 'rgba(29, 202, 255, 0.05)' }} >
+	        <ScrollView style={{ height : '91%' , marginTop : 54 , backgroundColor : 'rgba(29, 202, 255, 0.05)' }} >
 
+				<GiveMeTwitter data={this.props.data.twitter} />
 	        	<GiveMeTextModal title={'SOURIRE'} data={'JUSTE SOUS LE RIRE , DANS LA MESURE'}  />
 				<GiveMeRandomPic data={"minion"} max={29} mini />
-				<GiveMeText data={this.props.data.citation} />
-				<GiveMeTwitter data={this.props.data.twitter} />
+				<GiveMeText data={this.props.data.citation} ox />
 				<GiveMeMozaic title={'Dans les salles cette semaine'} data={this.props.data.cinema} open={(new Date().getDay() == 3) ? true : false  } />
 				<GiveMeList data={this.props.data.ministereKult} title={"Ministere de la Culture"} open={(new Date().getDay() == 1) ? true : false  } />
-				<GiveMeList title={"Les Sorties"} data={this.props.data.sorties} open={(new Date().getDay() == 5) ? true : false  } />
-				<GiveMeList title={"Prochainement dans les salles"} img={this.props.data.futurCinemaIMG} data={this.props.data.futurCinema} open={(new Date().getDay() == 6) ? true : false } />
+				<GiveMeList title={"Films a venir"} img={this.props.data.futurCinemaIMG} data={this.props.data.futurCinema} open={(new Date().getDay() == 6) ? true : false } />
+				<GiveMeList title={"Paris"} data={this.props.data.sorties} open={(new Date().getDay() == 5) ? true : false  } />
 				<GiveMeRandomPic data={"minion"} max={29} />
 				<GiveMeText data="LA C LA PLACE DU FRUIT" />
 				<GiveMeList title={"World'Art"} data={this.props.data.mondeArt} />
@@ -45,9 +45,6 @@ class ActuScreen extends Component {
 				<GiveMeList title={"Classement Series"} img={this.props.data.seriesIMG} data={this.props.data.series} />
 				<GiveMeList title={"Classement Films"} img={this.props.data.filmsIMG} data={this.props.data.films} />
 				<GiveMeText data="Classement Music" />
-				<GiveMeText data="..." />
-				<GiveMeText data="..." />
-				<GiveMeText data="..." />
 				<GiveMeText data="..." />
 			
 	        </ScrollView> )

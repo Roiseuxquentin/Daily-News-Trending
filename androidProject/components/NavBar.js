@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Image, TouchableNativeFeedback } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 import HeaderZ from '../components/HeaderZ.js'
 
@@ -19,15 +20,19 @@ import dbzCloud from './../ressources/images/dbzCloud.png';
 
 const NavBar = (props) => {
 	if (props.visible !== 'home') {
-		return (<View style={{ position: 'absolute',
+		return (
+				<View style={{ position : 'absolute',
 								flex : 1,
 								flexDirection : 'row',
 								top:  0,
 								left: 0,
 								right: 0,
-								paddingBottom: 10,
-								backgroundColor : (props.visible === 'actu' ) ? 'rgba(242, 243, 244, 0.5)' : 'rgba(29, 202, 255, 0.05)',
+								borderBottomColor: (props.visible === 'actu') ? 'rgba(174, 182, 191, 1)'   : 'rgba(29, 202, 255, 1)',
+								borderBottomRadius : 10,
+								borderBottomWidth: 1.5,
+								backgroundColor : (props.visible === 'actu') ? 'rgba(242, 243, 244, 0.5)'  : 'rgba(29, 202, 255, 0.05)' ,
 						    }} >
+
 				    <View style={{margin : 5 , flex : 1}} >
 						<TouchableNativeFeedback onPress={() => props.home() } > 
 							<Image source={dbzCloud} style={{ height : 42, width : 42  }} />
@@ -41,7 +46,9 @@ const NavBar = (props) => {
 				    <View style={{flex : 1}} >
 						<GiveMeAudio audio={props.audio} />
 				    </View>
-				</View>)
+
+				</View>
+				)
 	} else {
 		return (<View>
 				    

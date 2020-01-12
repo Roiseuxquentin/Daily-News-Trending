@@ -9,7 +9,7 @@ const FadeInGoogle = (props) => {
       fadeAnim,
       {
         toValue: 1,
-        duration: (300 * props.nb),
+        duration: (500 * props.nb),
       }
     ).start();
   }, [])

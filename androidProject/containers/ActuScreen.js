@@ -29,15 +29,19 @@ class ActuScreen extends Component {
 
  render() {
       return (
-        <ScrollView style={{ height : '91%' , marginTop : 60, backgroundColor : 'rgba(242, 243, 244, 0.5)' }} >
+        <ScrollView style={{ height : '91%' , marginTop : 54, backgroundColor : 'rgba(242, 243, 244, 0.5)' }} >
+
+          <GiveMeList title={"A La Une"} data={this.props.data.une} />
 
           <GiveMeMoneyStack data={this.props.data} />
+          
           <GiveMeNewsPapers />            
 
           <GiveMeRandomPic data={"news"} max={35} />
+
+          
           <GiveMeGoogle data={this.props.data} />
           
-          <GiveMeList title={"La Une"} data={this.props.data.une} />
           
           <GiveMePicture data={this.props.data} />
 
@@ -47,7 +51,6 @@ class ActuScreen extends Component {
 
           <GiveMeActu data={this.props.data} />           
           <GiveMeRandomPic data={"detect"} max={24} mini />
-          
         
         </ScrollView>
         )

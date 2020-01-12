@@ -37,8 +37,10 @@ class GiveMeRandomPic extends Component {
 		if (!this.state.url) {
 			return <Loader />
 		} else {
-			return ( <View style={{flex : 1 , justifyContent : 'center', alignItems : 'center', marginTop : 25 }} >
-				 		<Image source={{uri : this.state.url}} style={{width : this.state.size, height : this.state.size }} /> 	
+			return ( <View style={{flex : 1 , justifyContent : 'center', alignItems : 'center', marginTop : 25 , marginBottom : 25 }} >
+						 <View style={{flex : 1 , justifyContent : 'center', alignItems : 'center' ,  borderColor : 'rgba(174, 182, 191, 1)', borderWidth : 2 , padding : 2}} >
+					 		<Image source={{uri : this.state.url}} style={{width : this.state.size, height : this.state.size  }} /> 	
+						</View>
 					</View>)
 		}
 	}

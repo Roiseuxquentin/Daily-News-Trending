@@ -86,10 +86,10 @@ export default function HeaderZ(props) {
     // Google
     case "google" :
       return (
-        <View >
+        <View  >
             <Image source={googleImg} style={styles.imgGoogle} />
         <View key={30 * Math.random()}  > 
-                <Image  source={searchImg} style={{zIndex: 0, width: '100%', height: 50, resizeMode: 'stretch' , position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}} />
+                <Image source={searchImg} style={{zIndex: 0, width: '100%', height: 50, resizeMode: 'stretch' , position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}} />
             <Text style={styles.textGoogle} > {`Top des recherches google du jour.`}  </Text>
         </View>
         </View>)
@@ -97,7 +97,7 @@ export default function HeaderZ(props) {
     // Twitter  
     case "twitter" :
       return (
-        <View >
+        <View style={{ backgroundColor : 'white' }} >
             <Image source={twitterIMG} style={styles.twitterIMG} />
             <Text style={styles.twitterText} >un {giveMeFrenchDay()} </Text>
             <Text style={styles.soustext} >À {giveMeTime()}</Text>
