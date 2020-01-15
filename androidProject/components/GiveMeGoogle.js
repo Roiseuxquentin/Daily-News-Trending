@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import FadeInGoogle from './FadeInGoogle.js'
 import { LinearGradient } from 'expo-linear-gradient';
 
 import HeaderZ from './HeaderZ.js'
@@ -40,7 +39,7 @@ class GiveMeGoogle extends Component {
 	giveMeTrends(data) {
 		return data.map((trend, index ) => {
 
-		    return ( <View key={index * Math.random() } >
+		    return ( <View key={index + 42 * Math.random() } >
 			   			{ this.list(trend) }
 				    </View> )
 		})
@@ -50,16 +49,16 @@ class GiveMeGoogle extends Component {
 		return recherches.map((elt,index) => {
 			if (index)
 			 return (
-			 	<TouchableHighlight onPress={() => {
+			 	<TouchableHighlight key={index} onPress={() => {
 					if (this.state.display == 'none')
 						this.setState({display : 'flex', buttonVisibility : 'none' })
 					else 
 						this.setState({display : 'none', buttonVisibility : 'flex' }) 
 				}} >
-			 		<View key={index} style={{flex: 1, flexDirection: 'row' , marginTop : 15 }}  >
+			 		<View  style={{flex: 1, flexDirection: 'row' , marginTop : 15 }}  >
 	            		<Image  source={searchBodyImg} style={{width: '100%', height: 50, resizeMode: 'stretch' , position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}} />
 			 			<Text style={{marginLeft : 15}} >🔎 </Text>
-			 			<FadeInGoogle recherche={elt} nb={index} />
+			 			<Text style={{ fontSize: 20 }} >{elt}</Text>
 		 			</View>
 			 	</TouchableHighlight>
 
@@ -109,6 +108,8 @@ class GiveMeGoogle extends Component {
 	  						 <Text>
 	  						 {this.props.data.gooSearch[4][3]}
 			          						 </Text>
+					    	<Text style={{ color : 'rgba(174, 182, 191, 1)', fontSize : 32,
+					    					 display : (this.state.display == 'none' ) ? 'flex' : 'none' }} >...</Text>
 		            		<Image source={(this.state.display == 'none' ) ? down : up } style={{marginTop : 5, width : 20 , height : 20 }} />
 
 					    </LinearGradient>

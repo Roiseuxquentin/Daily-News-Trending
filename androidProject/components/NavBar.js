@@ -19,7 +19,7 @@ import dbzCloud from './../ressources/images/dbzCloud.png';
 // ###################################################
 
 const NavBar = (props) => {
-	if (props.visible !== 'home') {
+	if (props.visible && (props.visible !== 'home')) {
 		return (
 				<View style={{ position : 'absolute',
 								flex : 1,
@@ -30,8 +30,7 @@ const NavBar = (props) => {
 								borderBottomColor: (props.visible === 'actu') ? 'rgba(174, 182, 191, 1)'   : 'rgba(29, 202, 255, 1)',
 								borderBottomRadius : 10,
 								borderBottomWidth: 1.5,
-								backgroundColor : (props.visible === 'actu') ? 'rgba(242, 243, 244, 0.5)'  : 'rgba(29, 202, 255, 0.05)' ,
-						    }} >
+								backgroundColor : (props.visible === 'actu') ? 'rgba(242, 243, 244, 0.5)'  : 'rgba(29, 202, 255, 0.05)' }} >
 
 				    <View style={{margin : 5 , flex : 1}} >
 						<TouchableNativeFeedback onPress={() => props.home() } > 

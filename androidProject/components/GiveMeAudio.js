@@ -34,6 +34,11 @@ export default class GiveMeAudio extends React.Component {
 	componentDidMount() {
 			this.loadAudio()
 	}
+	
+	async componentWillUnmount() {
+	    const { playbackInstance } = this.state;
+	    await playbackInstance.pauseAsync();
+  	}
 
 	async loadAudio() {
 		const { currentIndex, isPlaying, volume } = this.state

@@ -68,6 +68,7 @@ class GiveMeTwitter extends Component {
 					          						 borderRadius: 5 }}>
 								{this.giveMeTweet(this.state.twitter.slice(3,6))}
 						    <View style={{flex : 1, justifyContent : 'center' , alignItems : 'center', marginTop : 10 }} >
+						    	<Text style={{ color : '#00acee', fontSize : 32, display : (this.state.display == 'none' ) ? 'flex' : 'none' }} >...</Text>
 	            				<Image source={(this.state.display == 'none' ) ? down : up } style={{marginTop : 5, width : 20 , height : 20 }} />
 						    </View>
 						    </LinearGradient>

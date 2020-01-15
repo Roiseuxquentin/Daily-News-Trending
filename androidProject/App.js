@@ -3,7 +3,7 @@ import config from './config.json'
 
 import { StatusBar, StyleSheet, Text, View, ScrollView } from 'react-native'
 
-import Home from './components/Home.js'
+import Home from './containers/Home.js'
 import OxygenScreen from './containers/OxygenScreen.js'
 import ActuScreen from './containers/ActuScreen.js'
 
@@ -96,7 +96,7 @@ export default class App extends Component {
   render() {
     return (
       <View style={{grid: 1}} >
-        <NavBar home={() => this.setState({loaded : 'home'})} audio={this.state.data.newsaudio}  visible={this.state.loaded} />
+        <NavBar home={() => this.setState({loaded : 'home'})} audio={this.state.data.newsaudio} visible={this.state.loaded} />
         <StatusBar  hidden />
         {this.display('home')}
       </View>
