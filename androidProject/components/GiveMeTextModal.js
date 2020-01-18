@@ -38,7 +38,7 @@ class GiveMeTextModal extends Component {
 							   						textAlign : 'center',
 						   							fontSize : 24,
 							   		 				marginTop : 270 }} >
-			   							{this.props.data.}
+			   							{this.props.data}
 			   						</Text>
 						</LinearGradient>
 		              </TouchableWithoutFeedback>

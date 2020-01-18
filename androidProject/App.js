@@ -32,6 +32,8 @@ export default class App extends Component {
         scrollingPosition : false,
         loaded : false,
         data : {newsaudio : 'ok'},
+        mot : {mot : 'ok', definition : "repondre par  l'affirmative" },
+        citation : {auteur : 'Haz', citation : 'Un jour , il fit nuit...'},
         grec : "" , 
         dorks : ["<XSS>"], 
         payload : [{ "description":"load..",
@@ -53,18 +55,28 @@ export default class App extends Component {
       .then(res => res.json() )
       .then(res => this.setState({nobel : res.nobel }))
       .then(() => { 
-        fetch(`http://${config.ipData}/grec`, settings)
+        fetch(`http://${config.ipData}/mot`, settings)
         .then(res => res.json() )
-        .then(res => this.setState({grec : res.grec }))
-        .then(() => {   
-          fetch(`http://${config.ipData}/joke`, settings) 
-          .then(res => res.json() )
-          .then(res => this.setState({joke : res.joke}))
+        .then(res => this.setState({mot : res.mot }))
+        .then(() => { 
+        fetch(`http://${config.ipData}/citation`, settings)
+        .then(res => res.json() )
+        .then(res => this.setState({citation : res.citation }))
           .then(() => {
-            fetch(`http://${config.ipData}/failles`, settings) 
+            fetch(`http://${config.ipData}/grec`, settings)
             .then(res => res.json() )
-            .then(res => this.setState({payload : res.payload , dorks : res.dorks }))
-            .then(res => this.setState({loaded : 'home'}))
+            .then(res => this.setState({grec : res.grec }))
+            .then(() => {   
+              fetch(`http://${config.ipData}/joke`, settings) 
+              .then(res => res.json() )
+              .then(res => this.setState({joke : res.joke}))
+              .then(() => {
+                fetch(`http://${config.ipData}/failles`, settings) 
+                .then(res => res.json() )
+                .then(res => this.setState({payload : res.payload , dorks : res.dorks }))
+                .then(res => this.setState({loaded : 'home'}))
+              })
+            })
           })
         })
       })
@@ -89,7 +101,7 @@ export default class App extends Component {
           return (<ActuScreen data={this.state.data} />)
           break;
         case 'oxygen' :
-          return (<OxygenScreen data={this.state.data} />)
+          return (<OxygenScreen state={this.state}  />)
           break;
         case 'grown' :
           return (<Grown data={this.state.data} />)

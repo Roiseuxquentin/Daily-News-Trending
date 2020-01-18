@@ -1,8 +1,7 @@
 import React, {Component} from 'react'
-import { LinearGradient } from 'expo-linear-gradient'
 import { View, Dimensions, StyleSheet, Image, TouchableNativeFeedback, Text } from 'react-native'
+import { LinearGradient } from 'expo-linear-gradient'
 import { Video } from 'expo-av'
-import { SliderBox } from "react-native-image-slider-box"
 
 import Loader from '../components/loader.js'
 import GiveMeAudioList from '../components/GiveMeAudioList.js'
