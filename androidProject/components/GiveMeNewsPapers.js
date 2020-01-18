@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Image, View } from 'react-native';
-
 import { SliderBox } from "react-native-image-slider-box";
+
+import GiveMeRandomPic from '../components/GiveMeRandomPic.js'
 
 // ################################################### 
 // #*/=============================================\*# 
@@ -51,7 +52,7 @@ class GiveMeNewsPaper extends Component {
     if (this.state.urls) {
       return ( <SliderBox sliderBoxHeight={650} images={this.state.urls} /> )
     } else {
-      return ( <View /> )
+      return ( <GiveMeRandomPic data={"news"} max={35} /> )
     }
   }
 }

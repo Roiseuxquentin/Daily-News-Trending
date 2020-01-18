@@ -32,19 +32,15 @@ class GiveMeTextModal extends Component {
 		          transparent={true}
 		          visible={this.state.modalVisible} >
 		              <TouchableWithoutFeedback onPress={() => this.setModalVisible(!this.state.modalVisible) }>
-				          <View style={{width : 360 ,
-				          				height : 705,
-				          				backgroundColor : 'rgba( 29, 202, 255, 0.6)'  }}>
-
-							   		<Text style={{backgroundColor : 'white' ,
-							   						padding : 10,
+						<LinearGradient colors={[ '#959595', 'transparent', '#959595' ]} style={{width : 360 ,height : 705,  }}>
+							   		<Text style={{  padding : 10,
 							   						margin : 10,
 							   						textAlign : 'center',
 						   							fontSize : 24,
 							   		 				marginTop : 270 }} >
-			   							{this.props.data}
+			   							{this.props.data.}
 			   						</Text>
-				          </View>
+						</LinearGradient>
 		              </TouchableWithoutFeedback>
 		        </Modal>
 

@@ -1,10 +1,11 @@
 import React from 'react'
 import { StyleSheet, TouchableOpacity, View, Image, Text } from 'react-native'
 
-import { Ionicons } from '@expo/vector-icons'
 import { Audio } from 'expo-av'
 
-export default class GiveMeAudio extends React.Component {
+import play from '../ressources/images/playList.png'
+import pause from '../ressources/images/pauseList.png'
+export default class GiveMeAudioList extends React.Component {
 	state = {
 		isPlaying: false ,
 		// url:'',
@@ -88,9 +89,9 @@ export default class GiveMeAudio extends React.Component {
 				<View style={styles.controls}>
 					<TouchableOpacity style={styles.control} onPress={this.handlePlayPause}>
 						{this.state.isPlaying ? (
-							<Ionicons name='ios-pause' size={48} color='#444' />
+							<Image source={pause} style={{height : 80,width : 80}} />
 						) : (
-							<Ionicons name='ios-play-circle' size={48} color='#444' />
+							<Image source={play} style={{height : 80,width : 80}} />
 						)}
 					</TouchableOpacity>
 				</View>
@@ -103,7 +104,8 @@ const styles = StyleSheet.create({
 		position : 'absolute',
 		right : 0,
 		top : 0,
-		flexDirection: 'row'
+		flexDirection: 'row',
+		alignItems : 'center'
 	},
 	control: {
 		margin: 5

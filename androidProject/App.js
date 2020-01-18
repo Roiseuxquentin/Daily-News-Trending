@@ -6,6 +6,8 @@ import { StatusBar, StyleSheet, Text, View, ScrollView } from 'react-native'
 import Home from './containers/Home.js'
 import OxygenScreen from './containers/OxygenScreen.js'
 import ActuScreen from './containers/ActuScreen.js'
+import Grown from './containers/Grown.js'
+// import Matrice from './containers/Matrice.js'
 
 import HeaderZ from './components/HeaderZ.js'
 import NavBar from './components/NavBar.js'
@@ -77,14 +79,20 @@ export default class App extends Component {
     }else {
       switch (this.state.loaded) {
         case 'home' :
-          return ( <Home grec={this.state.grec} actu={() => this.setState({ loaded : 'actu'}) }
-                                                 oxygen={() => this.setState({loaded : 'oxygen'})} />  )
+          return ( <Home grec={this.state.grec}  
+                          audio={this.state.data.newsaudio}
+                          grown={() => this.setState({ loaded : 'grown'}) }
+                          actu={() => this.setState({ loaded : 'actu'}) }
+                          oxygen={() => this.setState({loaded : 'oxygen'})} />  )
           break;
         case 'actu' :
           return (<ActuScreen data={this.state.data} />)
           break;
         case 'oxygen' :
           return (<OxygenScreen data={this.state.data} />)
+          break;
+        case 'grown' :
+          return (<Grown data={this.state.data} />)
           break;
         default :
           return (<Loader />  )

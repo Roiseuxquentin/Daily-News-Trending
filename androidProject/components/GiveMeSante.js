@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {  Image ,Modal, Text, TouchableHighlight, View, StyleSheet} from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient'
 
 // ################################################### 
 // #*/=============================================\*# 
@@ -14,7 +15,7 @@ import {  Image ,Modal, Text, TouchableHighlight, View, StyleSheet} from 'react-
 
 // I USE https://ethercreative.github.io/react-native-shadow-generator/ FOR SHADOW BORDER
 
-import consultIMG from '../ressources/images/consult.jpg'
+import consultIMG from '../ressources/images/consult.png'
 import backIMG from '../ressources/images/back.jpeg'
 	        		
 class GiveMeSante extends Component {
@@ -72,7 +73,6 @@ class GiveMeSante extends Component {
 			},
 			containerStyle: {
 				borderRadius: 3,
-				backgroundColor :  'rgba(214, 234, 248, 0.5)',
 				shadowColor: "#000",
 				shadowOffset: {
 					width: 0,
@@ -137,17 +137,18 @@ class GiveMeSante extends Component {
 		        </Modal>
 
 		        <TouchableHighlight onPress={() => this.setModalVisible(true) }>
-			        
+					<LinearGradient colors={[ '#027726' ,'transparent',  ]} >
 			        <View style={styles.containerStyle} >
 			        	<View style={{ flex:1, flexDirection: 'column' ,width: '40%',  justifyContent: 'center', alignItems: 'center' }} >
 		        			<Image  source={consultIMG} style={styles.consultIMG} />
 			        	</View>
 			        	<View style={{ width: '80%', flex:1, flexDirection: 'column' ,height: 200,  justifyContent: 'center', alignItems: 'center' }} >
-			        		<Text style={{ marginRight : 20 , fontSize : 30 }} > ⚕️ </Text>  
+			        		<Text style={{ marginRight : 20 , fontSize : 30 }} > 🚑 </Text>  
 			        		<Text style={styles.IndiceText} > ○ </Text>  
 			        		<Text style={styles.consultText} > Frequences et typologie des consultations medicales.</Text>
 			        	</View>
 			        </View>
+			        </LinearGradient> 
 
 		        </TouchableHighlight>
 		    {/*news ARS*/}

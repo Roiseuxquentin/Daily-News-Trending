@@ -7,6 +7,7 @@ import GiveMeTwitter from '../components/GiveMeTwitter.js'
 import GiveMeMozaic from '../components/GiveMeMozaic.js'
 import GiveMeAffiche from '../components/GiveMeAffiche.js'
 import GiveMeList from '../components/GiveMeList.js'
+import GiveMeTextList from '../components/GiveMeTextList.js'
 import GiveMeText from '../components/GiveMeText.js'
 import GiveMeRandomPic from '../components/GiveMeRandomPic.js'
 
@@ -21,7 +22,7 @@ import GiveMeRandomPic from '../components/GiveMeRandomPic.js'
 // #.\=============================================/.#
 // ###################################################
 
-class ActuScreen extends Component {
+class OxygenScreen extends Component {
 	constructor(props) {
 		super(props)
 	}
@@ -31,16 +32,19 @@ class ActuScreen extends Component {
 	        <ScrollView style={{ height : '91%' , marginTop : 54 , backgroundColor : 'rgba(29, 202, 255, 0.05)' }} >
 
 				<GiveMeTwitter data={this.props.data.twitter} />
-	        	<GiveMeTextModal title={'SOURIRE'} data={'JUSTE SOUS LE RIRE , DANS LA MESURE'}  />
+	        	<GiveMeTextModal title={"string"} data={"string"}  />
 				<GiveMeRandomPic data={"minion"} max={29} mini />
 				<GiveMeText data={this.props.data.citation} ox />
-				<GiveMeMozaic title={'Dans les salles cette semaine'} data={this.props.data.cinema} open={(new Date().getDay() == 3) ? true : false  } />
 				<GiveMeList data={this.props.data.ministereKult} title={"Ministere de la Culture"} open={(new Date().getDay() == 1) ? true : false  } />
-				<GiveMeList title={"Films a venir"} img={this.props.data.futurCinemaIMG} data={this.props.data.futurCinema} open={(new Date().getDay() == 6) ? true : false } />
-				<GiveMeList title={"Paris"} data={this.props.data.sorties} open={(new Date().getDay() == 5) ? true : false  } />
+				<GiveMeMozaic title={'🎥 Dans les salles 🎥'} data={this.props.data.cinema} open={(new Date().getDay() == 3) ? true : false  } />
+				<GiveMeList title={"🎞️ Films a venir 🎞️"} img={this.props.data.futurCinemaIMG} data={this.props.data.futurCinema} open={(new Date().getDay() == 6) ? true : false } />
+				<GiveMeList title={"🎭 World'Art 🎨"} data={this.props.data.mondeArt} />
 				<GiveMeRandomPic data={"minion"} max={29} />
 				<GiveMeText data="LA C LA PLACE DU FRUIT" />
-				<GiveMeList title={"World'Art"} data={this.props.data.mondeArt} />
+          		
+          		<GiveMeTextList data={this.props.data.science} emoji='🛸' />
+
+				<GiveMeList title={"Paris ⁉️"} data={this.props.data.sorties} open={(new Date().getDay() == 5) ? true : false  } />
 				<GiveMeText data="LA C LA PLACE DU LEGUME" />
 				<GiveMeList title={"Classement Series"} img={this.props.data.seriesIMG} data={this.props.data.series} />
 				<GiveMeList title={"Classement Films"} img={this.props.data.filmsIMG} data={this.props.data.films} />
@@ -51,4 +55,4 @@ class ActuScreen extends Component {
 	}
 }
 
-export default ActuScreen
+export default OxygenScreen

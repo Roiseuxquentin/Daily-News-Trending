@@ -1,10 +1,11 @@
+
 import React from 'react'
 import { StyleSheet, TouchableOpacity, View, Image, Text } from 'react-native'
 
 import { Ionicons } from '@expo/vector-icons'
 import { Audio } from 'expo-av'
 
-export default class GiveMeAudio extends React.Component {
+export default class GiveMeFirstLoadSound extends React.Component {
 	state = {
 		isPlaying: false ,
 		// url:'',
@@ -74,6 +75,7 @@ export default class GiveMeAudio extends React.Component {
 		if ( !this.state.isPlaying) {
 			setTimeout(this.handlePlayPause  , 60000 )
 		}
+		
 		// COSTO (0.0)
 		const { isPlaying, playbackInstance } = this.state
 		isPlaying ? await playbackInstance.pauseAsync() : await playbackInstance.playAsync()
