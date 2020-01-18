@@ -33,24 +33,24 @@ class OxygenScreen extends Component {
 
 				<GiveMeTwitter data={this.props.state.data.twitter} />
 	        	<GiveMeTextModal title={this.props.state.mot.mot} data={this.props.state.mot.definition}  />
-	        	<GiveMeTextModal title={this.props.state.citation.auteur} data={this.props.state.citation.citation}  />
 				<GiveMeRandomPic data={"minion"} max={29} mini />
 				<GiveMeText data={this.props.state.data.citation} ox />
-				<GiveMeList data={this.props.state.data.ministereKult} title={"Ministere de la Culture"} open={(new Date().getDay() == 1) ? true : false  } />
-				<GiveMeMozaic title={'🎥 Dans les salles 🎥'} data={this.props.state.data.cinema} open={(new Date().getDay() == 3) ? true : false  } />
+				<GiveMeMozaic title={`🎥 \n Dans les salles`} data={this.props.state.data.cinema} open={(new Date().getDay() == 3) ? true : false  } />
+				<GiveMeList title={"Ministere de la Culture"} data={this.props.state.data.ministereKult}  open={(new Date().getDay() == 1) ? true : false  } />
 				<GiveMeList title={"🎞️ Films a venir 🎞️"} img={this.props.state.data.futurCinemaIMG} data={this.props.state.data.futurCinema} open={(new Date().getDay() == 6) ? true : false } />
-				<GiveMeList title={"🎭 World'Art 🎨"} data={this.props.state.data.mondeArt} />
+				<GiveMeList title={"🎭🎨 \n World'Art"} data={this.props.state.data.mondeArt} />
 				<GiveMeRandomPic data={"minion"} max={29} />
 				<GiveMeText data="LA C LA PLACE DU FRUIT" />
           		
           		<GiveMeTextList data={this.props.state.data.science} emoji='🛸' />
 
-				<GiveMeList title={"Paris ⁉️"} data={this.props.state.data.sorties} open={(new Date().getDay() == 5) ? true : false  } />
 				<GiveMeText data="LA C LA PLACE DU LEGUME" />
+	        	<GiveMeText data={`${this.props.state.citation.citation} \n "${this.props.state.citation.ref}"`}  />
+				<GiveMeList title={"Paris ⁉️"} data={this.props.state.data.sorties} open={(new Date().getDay() == 5) ? true : false  } />
 				<GiveMeList title={"Classement Series"} img={this.props.state.data.seriesIMG} data={this.props.state.data.series} />
 				<GiveMeList title={"Classement Films"} img={this.props.state.data.filmsIMG} data={this.props.state.data.films} />
+				<GiveMeText data="_________________" />
 				<GiveMeText data="Classement Music" />
-				<GiveMeText data="..." />
 			
 	        </ScrollView> )
 	}

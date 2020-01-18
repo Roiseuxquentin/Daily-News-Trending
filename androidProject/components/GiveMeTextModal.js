@@ -28,16 +28,17 @@ class GiveMeTextModal extends Component {
 		return (
 		   	<View >
 		        <Modal
-		          animationType="slide"
+		          animationType="fade"
 		          transparent={true}
 		          visible={this.state.modalVisible} >
 		              <TouchableWithoutFeedback onPress={() => this.setModalVisible(!this.state.modalVisible) }>
-						<LinearGradient colors={[ '#959595', 'transparent', '#959595' ]} style={{width : 360 ,height : 705,  }}>
+						<LinearGradient colors={[ 'transparent', 'white', 'rgba(29, 202, 255, 1)', 'white', 'transparent' ]} style={{width : 360 ,height : 705,  }}>
 							   		<Text style={{  padding : 10,
 							   						margin : 10,
+							   						color : 'white',
 							   						textAlign : 'center',
 						   							fontSize : 24,
-							   		 				marginTop : 270 }} >
+							   		 				marginTop : 300 }} >
 			   							{this.props.data}
 			   						</Text>
 						</LinearGradient>
@@ -50,15 +51,15 @@ class GiveMeTextModal extends Component {
 			          						 alignItems: 'center',
 			          						 borderRadius: 5 }}>
 
-   							<View style={{borderColor : 'rgba(174, 182, 191, 1)' ,
-											borderRadius : 5,
-											borderBottomWidth : 2}} >
-				   		<Text style={{textAlign : 'center', fontSize : 18, fontStyle : 'italic' }} >
-					   		<Text style={{ fontSize : 50, fontWeight : '800' }} >"</Text>
-					   		{this.props.title}
-					   		<Text style={{ fontSize : 50, fontWeight : '800' }} >"</Text>
-				   		</Text>
-							</View>
+						<View style={{borderColor : 'rgba(174, 182, 191, 1)' ,
+									borderRadius : 5,
+									borderBottomWidth : 2}} >
+					   		<Text style={{textAlign : 'center', fontSize : 33, fontStyle : 'italic' }} >
+						   		<Text style={{ fontSize : 50, fontWeight : '800' }} >"</Text>
+						   		{this.props.title}
+						   		<Text style={{ fontSize : 50, fontWeight : '800' }} >"</Text>
+					   		</Text>
+								</View>
 				    </LinearGradient>    
 		        </TouchableWithoutFeedback>
 

@@ -28,9 +28,11 @@ class ActuScreen extends Component {
 		super(props)
 	}
 
+          // <LinearGradient colors={[ 'white' , 'rgba(29, 202, 255, 0.1)', 'transparent' style={{white}} ]} />
  render() {
       return (
         <ScrollView style={{ height : '91%' , marginTop : 54, backgroundColor : 'rgba(242, 243, 244, 0.5)' }} >
+          
           <GiveMeList title={"A La Une"} data={this.props.data.une} />
 
           <GiveMeMoneyStack data={this.props.data} />

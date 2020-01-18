@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { FlatList, Text } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 
 /*==========================================='\ 
@@ -40,24 +41,29 @@ class GiveMeTextList extends Component {
           			return <Text style={{fontSize : 14 ,
       									margin : 15,
       									textAlign : 'center' }} 
-								key={Number(item.id)} >{this.props.emoji ? this.props.emoji : "" } {item.url} {this.props.emoji ? this.props.emoji : ""} </Text> 
+								key={Number(item.id)} > {this.props.emoji ? this.props.emoji : "" } {item.url} {this.props.emoji ? this.props.emoji : ""} </Text> 
           		} else {
-          			return <Text style={{
-          								fontSize : 18 ,
-      									margin : 5,
-      									textAlign : 'center',
-      									padding : 7,
-      									borderRadius :2,
-			   					 		shadowColor: "green",
-										shadowOpacity: 0.20,
-										shadowRadius: 1.41,
-										shadowOffset: {
-										width: 0,
-										height: 1,
-										},
-										elevation: 2, }} 
-								key={Number(item.id)} > {item.url}</Text> 
-			}
+          			return(
+					<LinearGradient colors={[ 'transparent','transparent','white','transparent','transparent'  ]} 
+									style={{borderRadius :2,
+											margin : 5,
+											shadowOpacity: 0.20,
+											shadowRadius: 1.41,
+											shadowOffset: {
+											width: 0,
+											height: 1,
+											},
+											elevation: 1,}} >
+  				 		<Text  style={{
+  								fontSize : 18 ,
+								textAlign : 'center',
+								padding : 7 }} 
+								key={Number(item.id)} >
+						 {item.url}
+						 </Text> 
+					</LinearGradient>
+					)
+				}
 			}} />
    		)
 	 }

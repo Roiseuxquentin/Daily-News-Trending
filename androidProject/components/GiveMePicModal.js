@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { View, Text, Image , Modal, TouchableWithoutFeedback} from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 // ################################################### 
 // #*/=============================================\*# 
@@ -28,17 +29,14 @@ class GiveMePicModal extends Component {
 		return (
 		   	<View >
 		        <Modal
-		          animationType="slide"
+		          animationType="fade"
 		          transparent={true}
 		          visible={this.state.modalVisible}>
 	              <TouchableWithoutFeedback onPress={() => this.setModalVisible(!this.state.modalVisible) }>
-		       		   <View style={{ width : 400 ,
-				          				height : 750,
-				          				borderColor : 'pink',
-				          				borderWidth : 2 ,
-				          				backgroundColor : 'rgba(29, 202, 255, 0.6)' }} >
+		       		   <LinearGradient colors={[ 'transparent', 'rgba(29, 202, 255, 1)', 'transparent' ]}
+       		   							style={{ width : 360 , height : 705, }} >
 					   		<Image source={{uri : this.props.data}}  style={{width : 150 , height : 200,position : 'absolute', top : 250 , left : 115 ,}} />
-		        	  </View>
+		        	  </LinearGradient>
 	              </TouchableWithoutFeedback>
 		        </Modal>
 

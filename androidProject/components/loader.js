@@ -11,7 +11,7 @@ class Loader extends Component {
         <Image source={waiting} style={{height : 750,width : 360 , zIndex : 0 }} />
         
         <View style={{textAtlin : 'center',justifyContent : 'center', position : 'absolute', zIndex : 5 , flex : 1, top : 75 , left : 30 }}>
-          <Text style={{ fontSize : 24 , zIndex : 0, margin : 20,  }} > "Les murs murant Paris , rendent Pris murmurant" Hugo </Text>
+          <Text style={{ fontSize : 24 , zIndex : 0, margin : 20,  }} > "Les murs murant Paris , rendent Paris murmurant" Hugo </Text>
         </View>
 
         <View style={{position : 'absolute', zIndex : 5 , flex : 1, top : 290 , left : -20}}>
