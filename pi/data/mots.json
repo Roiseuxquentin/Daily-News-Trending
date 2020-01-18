@@ -1,21 +1,48 @@
 {
-	"mots" : [
-				{"mot" : "sourir", "Juste en dessous du rire..." : "string" },
-				{"mot" : "dithyrambique", "definition" : "Très élogieux, qui fait l’apologie de quelque chose ou quelqu'un." },
-				{"mot" : "pusillanime", "definition" : "Qui manque de courage et/ou de caractère." },
-				{"mot" : "caracoler", "definition" : "Faire des mouvements vivaces, sautiller, galoper, sauter, cabrioler." },
-				{"mot" : "astringent", "definition" : "De goût ou d'odeur âpre." },
-				{"mot" : "sagace", "definition" : "La personne sagace sait faire preuve d'esprit en prenant rapidement en compte toutes les subtilités d'une situation." },
-				{"mot" : "synergie", "definition" : "Mise en commun de moyens qui se renforcent entre eux pour aboutir à un même but." },
-				{"mot" : "exquis", "definition" : "Qui est d'une grande délicatesse, très agréable." },
-				{"mot" : "délicieuse", "definition" : "Délicieux qualifie ce qui flatte les sens, l'esprit ou le coeur." },
-				{"mot" : "cosmos", "definition" : "L'Univers considéré comme un système organisé." }
-				{"mot" : "string", "definition" : "string" }
-	],
-	"citation" : [
-				{"ref" : "Seyte", "definition" : "Le jour j'escorte une ombre. Ouvre tes oreilles , il y a plus des mots qui valent tout les tresors du monde" },
-				{"ref" : "Davodka", "definition" : "Tu trouveras l'ombre d'un doute , la ou il reste une lueure d'espoir" },
-				{"ref" : "string", "definition" : "string" }
-	]
-
+    "mots": [
+        {
+            "mot": "sourir",
+            "Juste en dessous du rire...": "string"
+        },
+        {
+            "mot": "dithyrambique",
+            "definition": "Très élogieux, qui fait l’apologie de quelque chose ou quelqu'un."
+        },
+        {
+            "mot": "pusillanime",
+            "definition": "Qui manque de courage et/ou de caractère."
+        },
+        {
+            "mot": "caracoler",
+            "definition": "Faire des mouvements vivaces, sautiller, galoper, sauter, cabrioler."
+        },
+        {
+            "mot": "astringent",
+            "definition": "De goût ou d'odeur âpre."
+        },
+        {
+            "mot": "sagace",
+            "definition": "La personne sagace sait faire preuve d'esprit en prenant rapidement en compte toutes les subtilités d'une situation."
+        },
+        {
+            "mot": "synergie",
+            "definition": "Mise en commun de moyens qui se renforcent entre eux pour aboutir à un même but."
+        },
+        {
+            "mot": "exquis",
+            "definition": "Qui est d'une grande délicatesse, très agréable."
+        },
+        {
+            "mot": "délicieuse",
+            "definition": "Délicieux qualifie ce qui flatte les sens, l'esprit ou le coeur."
+        },
+        {
+            "mot": "cosmos",
+            "definition": "L'Univers considéré comme un système organisé."
+        },
+        {
+            "mot": "string",
+            "definition": "string"
+        }
+    ]
 }

@@ -52,6 +52,24 @@ app.get('/grec', (req,res) => {
   }) 
 })
 
+app.get('/mot', (req,res) => {
+  fs.readFile('./data/mots.json', 'utf-8', (err, data) => { 
+    if (err) throw err 
+    const dataTransform = JSON.parse(data)
+    const motRdm = dataTransform.mots[Math.floor(Math.random() * (0 - 9)) + 9]
+    res.send(JSON.stringify({mot : motRdm}))    
+  }) 
+})
+
+app.get('/citation', (req,res) => {
+  fs.readFile('./data/citations.json', 'utf-8', (err, data) => { 
+    if (err) throw err 
+    const dataTransform = JSON.parse(data)
+    const citationRdm = dataTransform.citations[Math.floor(Math.random() * (0 - 5)) + 5]
+    res.send(JSON.stringify({citation : citationRdm}))    
+  }) 
+})
+
 app.get('/nobel', (req,res) => {
   fs.readFile('./data/nobel.json', 'utf-8', (err, data) => { 
     if (err) throw err 
