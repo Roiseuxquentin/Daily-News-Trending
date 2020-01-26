@@ -59,8 +59,9 @@ app.get('/legume', (req,res) => {
     
     const date = new Date()
     const monthArray = ["janvier","fevrier","mars","avril","mai","juin","juillet","aout","septembre","octobre","novembre","decembre"]
-    const max = dataTransform.legumes[monthArray[date.getMonth()]].length
-
+    const currentMonth = monthArray[date.getMonth()]
+    const max = dataTransform.legumes[currentMonth].length
+    
     const currentLegumes = dataTransform.legumes[monthArray[date.getMonth()]]
     const legumeRdm = currentLegumes[Math.floor(Math.random() * (0 - max)) + max]
     res.send(JSON.stringify({legume : legumeRdm}))    
