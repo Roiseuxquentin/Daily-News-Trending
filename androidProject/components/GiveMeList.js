@@ -53,7 +53,7 @@ class GiveMeList extends Component {
 					<Text style={{textAlign : 'center', fontSize : 20 }} > 
 						{this.props.title}
 						<View style={{width : 10 , height : 1}} />
-	            		<Image source={(this.state.display == 'none' ) ? down : up } style={{width : 20 , height : 20 }} />
+	            		<Image source={(this.state.display == 'none' ) ? down : up } style={{width : 30 , height : 30 }} />
 					</Text>
 				</TouchableWithoutFeedback>
 		    </LinearGradient>
@@ -61,7 +61,7 @@ class GiveMeList extends Component {
 
 			<TouchableWithoutFeedback onPress={() => this.setState({display : 'none' }) } >
 		   		<View  style={{margin : 5 , display : this.state.display, flex : 1, alignItems : 'center'}} >
-					{(!this.state.img) ?  <GiveMeTextList data={this.props.data} /> : <GiveMeAffiche img={this.state.img} data={this.state.data} /> }
+					{(!this.state.img) ?  <GiveMeTextList data={this.props.data} color={this.props.color} /> : <GiveMeAffiche img={this.state.img} data={this.state.data} /> }
 				</View>
 			</TouchableWithoutFeedback>
 

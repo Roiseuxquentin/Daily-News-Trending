@@ -18,6 +18,7 @@ class GiveMeTextList extends Component {
 		super(props)
 		this.state = {
 			  data : {id : 42, url : 'load...'},
+			  color : 'transparent'
   		}
 	}
 
@@ -27,6 +28,9 @@ class GiveMeTextList extends Component {
 			      return { id: (Math.random * 100 + index), url: url };
 			    });
 		this.setState({data : DATA})
+		if (this.props.color) {
+			this.setState({color : this.props.color })
+		}
 	}
 
  render() {
@@ -44,8 +48,9 @@ class GiveMeTextList extends Component {
 								key={Number(item.id)} > {this.props.emoji ? this.props.emoji : "" } {item.url} {this.props.emoji ? this.props.emoji : ""} </Text> 
           		} else {
           			return(
-					<LinearGradient colors={[ 'transparent','transparent','white','transparent','transparent'  ]} 
+					<LinearGradient colors={[ this.state.color,"transparent","white" ,"transparent",this.state.color  ]} 
 									style={{borderRadius :2,
+											marginTop : 15,
 											margin : 5,
 											shadowOpacity: 0.20,
 											shadowRadius: 1.41,
@@ -55,9 +60,9 @@ class GiveMeTextList extends Component {
 											},
 											elevation: 1,}} >
   				 		<Text  style={{
-  								fontSize : 18 ,
+  								fontSize : 20 ,
 								textAlign : 'center',
-								padding : 7 }} 
+								padding : 15 }} 
 								key={Number(item.id)} >
 						 {item.url}
 						 </Text> 

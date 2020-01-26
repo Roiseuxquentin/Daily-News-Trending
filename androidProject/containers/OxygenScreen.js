@@ -36,19 +36,19 @@ class OxygenScreen extends Component {
 				<GiveMeRandomPic data={"minion"} max={29} mini />
 				<GiveMeText data={this.props.state.data.citation} ox />
 				<GiveMeMozaic title={`🎥 \n Dans les salles`} data={this.props.state.data.cinema} open={(new Date().getDay() == 3) ? true : false  } />
-				<GiveMeList title={"Ministere de la Culture"} data={this.props.state.data.ministereKult}  open={(new Date().getDay() == 1) ? true : false  } />
+				<GiveMeList color="rgba(255, 248, 220, 0.5)" title={"Ministere de la Culture"} data={this.props.state.data.ministereKult}  open={(new Date().getDay() == 1) ? true : false  } />
+				<GiveMeList color={"rgba( 176, 58, 46, 0.2)"} title={"🎭🎨 \n World'Art"} data={this.props.state.data.mondeArt} />
 				<GiveMeList title={"🎞️ Films a venir 🎞️"} img={this.props.state.data.futurCinemaIMG} data={this.props.state.data.futurCinema} open={(new Date().getDay() == 6) ? true : false } />
-				<GiveMeList title={"🎭🎨 \n World'Art"} data={this.props.state.data.mondeArt} />
 				<GiveMeRandomPic data={"minion"} max={29} />
 				<GiveMeText data="LA C LA PLACE DU FRUIT" />
           		
-          		<GiveMeTextList data={this.props.state.data.science} emoji='🛸' />
+          		<GiveMeTextList color={"rgba( 125, 60, 152, 0.4)"} data={this.props.state.data.science} emoji='🛸' />
 
 				<GiveMeText data="LA C LA PLACE DU LEGUME" />
 	        	<GiveMeText data={`${this.props.state.citation.citation} \n "${this.props.state.citation.ref}"`}  />
-				<GiveMeList title={"Paris ⁉️"} data={this.props.state.data.sorties} open={(new Date().getDay() == 5) ? true : false  } />
-				<GiveMeList title={"Classement Series"} img={this.props.state.data.seriesIMG} data={this.props.state.data.series} />
-				<GiveMeList title={"Classement Films"} img={this.props.state.data.filmsIMG} data={this.props.state.data.films} />
+				<GiveMeList color={false} title={"Paris ⁉️"} data={this.props.state.data.sorties} open={(new Date().getDay() == 5) ? true : false  } />
+				<GiveMeList color={false} title={"Classement Series"} img={this.props.state.data.seriesIMG} data={this.props.state.data.series} />
+				<GiveMeList color={false} title={"Classement Films"} img={this.props.state.data.filmsIMG} data={this.props.state.data.films} />
 				<GiveMeText data="_________________" />
 				<GiveMeText data="Classement Music" />
 			

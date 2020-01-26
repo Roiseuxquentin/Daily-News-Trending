@@ -52,6 +52,21 @@ app.get('/grec', (req,res) => {
   }) 
 })
 
+app.get('/legume', (req,res) => {
+  fs.readFile('./data/legumes.json', 'utf-8', (err, data) => { 
+    if (err) throw err 
+    const dataTransform = JSON.parse(data)
+    
+    const date = new Date()
+    const monthArray = ["janvier","fevrier","mars","avril","mai","juin","juillet","aout","septembre","octobre","novembre","decembre"]
+    const max = dataTransform.legumes[monthArray[date.getMonth()]].length
+
+    const currentLegumes = dataTransform.legumes[monthArray[date.getMonth()]]
+    const legumeRdm = currentLegumes[Math.floor(Math.random() * (0 - max)) + max]
+    res.send(JSON.stringify({legume : legumeRdm}))    
+  }) 
+})
+
 app.get('/mot', (req,res) => {
   fs.readFile('./data/mots.json', 'utf-8', (err, data) => { 
     if (err) throw err 

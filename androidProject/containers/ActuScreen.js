@@ -33,7 +33,7 @@ class ActuScreen extends Component {
       return (
         <ScrollView style={{ height : '91%' , marginTop : 54, backgroundColor : 'rgba(242, 243, 244, 0.5)' }} >
           
-          <GiveMeList title={"A La Une"} data={this.props.data.une} />
+          <GiveMeList color={false} title={"A La Une"} data={this.props.data.une} />
 
           <GiveMeMoneyStack data={this.props.data} />
           
@@ -47,9 +47,9 @@ class ActuScreen extends Component {
           <GiveMeRandomPic data={"detect"} max={24} />
 
           
-          <GiveMeTextList data={this.props.data.cnrs} emoji='📜' />
+          <GiveMeTextList color={false} data={this.props.data.cnrs} emoji='📜' />
           <GiveMeSante data={this.props.data} /> 
-          <GiveMeTextList data={this.props.data.gouv.slice(0,3)} emoji='🇫🇷' />
+          <GiveMeTextList color={false} data={this.props.data.gouv.slice(0,3)} emoji='🇫🇷' />
 
           <GiveMeRandomPic data={"news"} max={35} mini />
           <GiveMeActu data={this.props.data} />           
