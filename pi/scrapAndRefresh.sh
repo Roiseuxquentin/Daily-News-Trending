@@ -10,7 +10,8 @@
 # ||      \/     \/_____/                  2019|| #
 #.\=============================================/.#
 ###################################################
-leChemin="."
+leChemin="/home/pi/Daily-News-Trending/pi/"
+#/home/pi/Daily-News-Trending/pi/
 
 #MAKE BUFFER INFO
 touch ghost.info.html
