@@ -11,7 +11,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "curl": "^0.1.4",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "feed": "^3.0.0",
     "rss-parser": "^3.7.1"
   }
